@@ -13,7 +13,7 @@ const NavBar = () => {
   const flexBetween = "flex items-center justify-between";
   const isAboveMediumScreens = useMediaQuery("(min-width: 1060px)");
   const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
-  const cart = useAppSelector(state => state.cart.product).length
+  const cart = useAppSelector(state => state.cart.products).length
 
   return (
     <nav>
@@ -31,13 +31,17 @@ const NavBar = () => {
           {/* RIGHT SIDE */}
           {isAboveMediumScreens ? (
 
-            <div className={`${flexBetween} gap-16 text-white uppercase tracking-widest font-light`}>
+            <div className={`${flexBetween} gap-16 text-white uppercase tracking-widest font-light `}>
               <Link to="/">
-                <p>HOME</p>
+                <p className="hover:text-primary-500">HOME</p>
               </Link>
               <Link to="/quiz">
-                <p>QUIZ</p>
+                <p className="hover:text-primary-500">QUIZ</p>
               </Link>
+              <Link to="/shop">
+                <p className="hover:text-primary-500">SHOP</p>
+              </Link>
+
               <Link to="/cart">
                 <span className={`flex `}>
 
