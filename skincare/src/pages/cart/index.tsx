@@ -12,8 +12,8 @@ const Cart = () => {
   const cart = useAppSelector(state => state.cart.products)
   const dispatch = useAppDispatch();
   const hideButton = cart?.length == 0 ? "hidden" : ""
-  const total = cart?.reduce((cartTotal:number , item: ProductType) => 
-    cartTotal += item?.price ,0)
+  const total = cart?.reduce((cartTotal: number, item: ProductType) =>
+    cartTotal += item?.price, 0)
   return (
     <div className="bg-white h-full">
       <NavBar />
@@ -43,15 +43,13 @@ const Cart = () => {
                   </Link>
                 </div>
                 :
-                
-                cart?.map((product: ProductType,index) => (
+
+                cart?.map((product: ProductType, index) => (
                   <CartCard
                     img={product?.img}
                     name={product?.name}
                     price={product?.price}
                     key={index}
-                
-                 
                   />
                 ))
               }
@@ -62,48 +60,52 @@ const Cart = () => {
 
 
           <div className="flex flex-col  ml-12 basis-1/4">
-              <div className="border-2 px-8 pt-2 py-6">
-                <p className="mt-16 text-xl bold mb-6">ORDER SUMMARY</p>
-                <div className="flex h-[250px] border-b-2 overflow-scroll mb-8 flex-col text-gray-100">
-                  {cart?.map((product:ProductType)=> (
-                    <div className="flex mb-2">
-                      <p className="basis-1/4">1 x</p>
-                      <p className="basis-1/2">{product?.name}</p>
-                      <p className="basis-1/4 ml-2">$ {product?.price}</p>
-                    </div>
-                    
-                  ))}
-
-
-
-                </div>
-                <p>Total</p>
-
-              </div> 
-              {/* SHIPPING AND TAXES */}
-              <div>
-                <div className="flex flex-col px-4 py-2 mt-8">
-                  <div className="flex justify-between pb-2">
-                  <p>Shipping</p>
-                  <p>--</p>
+            <div className="border-2 px-8 pt-2 py-6">
+              <p className="mt-16 text-xl bold mb-6">ORDER SUMMARY</p>
+              <div className="flex h-[250px] border-b-2 overflow-scroll mb-8 flex-col text-gray-100">
+                {cart?.map((product: ProductType) => (
+                  <div className="flex mb-2">
+                    <p className="basis-1/4">1 x</p>
+                    <p className="basis-1/2">{product?.name}</p>
+                    <p className="basis-1/4 ml-2">$ {product?.price}</p>
                   </div>
-                  <div className="flex justify-between pb-2">
-                    <p>Taxes</p>
-                    <p>--</p>
-                  </div>
-                  <div className="flex justify-between pb-2">
-                    <p>Total</p>
-                    <p>$ {total}</p>
-                  </div>
-                
-                </div>
-                <button
-                  className="bg-black w-full text-white h-[44px] hover:bg-primary-500 hover:text-black"
-                >
-                  Checkout
-                </button>
+
+                ))}
+
+
 
               </div>
+              <div className="flex justify-between">
+                <p>Total</p>
+                <p>$ {total}</p>
+              </div>
+
+
+            </div>
+            {/* SHIPPING AND TAXES */}
+            <div>
+              <div className="flex flex-col px-4 py-2 mt-8">
+                <div className="flex justify-between pb-2">
+                  <p>Shipping</p>
+                  <p>--</p>
+                </div>
+                <div className="flex justify-between pb-2">
+                  <p>Taxes</p>
+                  <p>--</p>
+                </div>
+                <div className="flex justify-between pb-2">
+                  <p className="text-xl">Total</p>
+                  <p className="text-2xl font-semibold">$ {total}</p>
+                </div>
+
+              </div>
+              <button
+                className="bg-black w-full text-white h-[44px] hover:bg-primary-500 hover:text-black"
+              >
+                Checkout
+              </button>
+
+            </div>
 
           </div>
 
