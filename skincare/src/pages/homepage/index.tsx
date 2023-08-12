@@ -30,35 +30,35 @@ function Homepage() {
   }, []);
 
   return (
-   <div className='app bg-gray-20'> 
+    <div className='app bg-gray-20'>
       <Navbar
-       isTopOfPage={isTopOfPage}
-       selectedPage={selectedPage}
-       setSelectedPage={setSelectedPage}
-    />
+        isTopOfPage={isTopOfPage}
+        selectedPage={selectedPage}
+        setSelectedPage={setSelectedPage}
+      />
 
-    <Home 
-      setSelectedPage={setSelectedPage}
-      isTopOfPage={isTopOfPage}
-    />
-    <Benefits 
-      setSelectedPage={setSelectedPage}
-      isTopOfPage={isTopOfPage}
-    />
-    <OurClasses
-      setSelectedPage={setSelectedPage}
-      isTopOfPage={isTopOfPage}
-    />
-    <Shop />
-    <Quiz
-    setSelectedPage={setSelectedPage}
-    isTopOfPage={isTopOfPage} 
-    />
-    <Footer />
-    
+      <Home
+        setSelectedPage={setSelectedPage}
+        isTopOfPage={isTopOfPage}
+      />
+      <Benefits
+        setSelectedPage={setSelectedPage}
+        isTopOfPage={isTopOfPage}
+      />
+      <OurClasses
+        setSelectedPage={setSelectedPage}
+        isTopOfPage={isTopOfPage}
+      />
+      <Shop />
+      <Quiz
+        setSelectedPage={setSelectedPage}
+        isTopOfPage={isTopOfPage}
+      />
+      <Footer />
 
-    
-   </div>
+
+
+    </div>
   )
 }
 

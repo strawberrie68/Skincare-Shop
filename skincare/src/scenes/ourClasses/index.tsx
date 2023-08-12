@@ -34,7 +34,7 @@ const classes: Array<ClassType> = [
   },
   {
     name: "Holistic Approach to Beauty",
-    description:"We believe that skincare is more than skin-deep. Our routines take a holistic approach to beauty, addressing factors such as lifestyle, diet, and environmental influences that can impact your skin's health",
+    description: "We believe that skincare is more than skin-deep. Our routines take a holistic approach to beauty, addressing factors such as lifestyle, diet, and environmental influences that can impact your skin's health",
     image: image5,
   },
   {
@@ -73,12 +73,12 @@ const OurClasses = ({ setSelectedPage }: Props) => {
                 OUR ROUTINES
               </p>
             </div>
-            
+
             <p className="py-5 text-gray-500">
-            Experience the Future of Skincare: Elevate your skincare journey with our curated routines, meticulously designed by certified dermatologists. Unleash your skin's potential with personalized solutions that adapt to your evolving needs. 
+              Experience the Future of Skincare: Elevate your skincare journey with our curated routines, meticulously designed by certified dermatologists. Unleash your skin's potential with personalized solutions that adapt to your evolving needs.
             </p>
             <p className="py-5 text-gray-500">
-            Embrace the science of beauty and join countless others who have witnessed remarkable transformations. Try Daily.ROUTINE today and discover the personalized path to radiant, healthier skin.
+              Embrace the science of beauty and join countless others who have witnessed remarkable transformations. Try Daily.ROUTINE today and discover the personalized path to radiant, healthier skin.
             </p>
           </div>
         </motion.div>
@@ -98,7 +98,7 @@ const OurClasses = ({ setSelectedPage }: Props) => {
           </div>
         </div>
       </motion.div>
-    
+
     </section>
   );
 };

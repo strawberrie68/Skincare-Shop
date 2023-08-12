@@ -88,4 +88,4 @@ const products: Array<ProductType> = [
 
 ];
 
-  export default products
+export default products
