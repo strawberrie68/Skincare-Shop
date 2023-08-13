@@ -22,9 +22,12 @@ const NavBar = () => {
       >
         <div className={`${flexBetween} mx-auto w-5/6`}>
           {/* LEFT SIDE */}
-          <div className="basis-1/5 mr-4 xs:basis-1/3">
-            <img className="bject-scale-down" src={Logo} alt="logo" />
-          </div>
+          <Link to="/">
+            <div className="basis-1/5 mr-4 xs:basis-1/3">
+              <img className="bject-scale-down" src={Logo} alt="logo" />
+            </div>
+          </Link>
+
           {/* RIGHT SIDE */}
           {isAboveMediumScreens ? (
 
@@ -38,16 +41,16 @@ const NavBar = () => {
               <Link to="/cart">
                 <span className={`flex `}>
 
-                  <Badge 
-                      className='text-sm' 
-                      badgeContent={cart} 
-                      sx={{
-                        "& .MuiBadge-badge": {
-                          color: "black",
-                          backgroundColor: "white"
-                        }
-                      }}
-                   >
+                  <Badge
+                    className='text-sm'
+                    badgeContent={cart}
+                    sx={{
+                      "& .MuiBadge-badge": {
+                        color: "black",
+                        backgroundColor: "white"
+                      }
+                    }}
+                  >
                     <ShoppingBagIcon className="h-6 w-6 text-primary-500" />
                   </Badge>
                 </span>
