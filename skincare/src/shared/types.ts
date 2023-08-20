@@ -20,34 +20,34 @@ export enum SelectedPage {
   }
 
   export interface ProductType {
-    img: String;
-    name: String;
-    concerns: String[];
-    skintype: String[];
-    price: Number;
-    category: String;
+    img: string;
+    name: string;
+    concerns: string[];
+    skintype: string[];
+    price: number;
+    category: string;
   }
   
 
   export interface SkinType {
-    skintype: String,
+    skintype: string,
     isSensitive: boolean,
-    concerns:String[],
+    concerns:string[],
     tret: {
       want: boolean,
       tried: boolean,
       irritationLevel: number,
       pregnant: boolean,
     },
-    acneLevel:String,
+    acneLevel:string,
 
   }
 
   export interface QuizType {
-    question: String
+    question: string
     answerOptions:{
-      answer: String,
-      value: (String | boolean)[] | String,
+      answer: string,
+      value: (string | boolean)[] | string,
     }[]
   }[]
 

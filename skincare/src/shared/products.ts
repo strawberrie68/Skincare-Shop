@@ -3,7 +3,7 @@ import { ProductType } from "@/shared/types";
 
 const products: Array<ProductType> = [
     {
-        img: "https://m.media-amazon.com/images/I/61FxWlEC6yL._AC_SL1500_.jpg",
+        img: "https://versedskin.com/cdn/shop/products/HYDRATINGMILKTONER_LABEL_241_v2_1800x.jpg?v=1656434566",
         name: "CeraVe SALICYLIC ACID Cleanser",
         concerns: ["barrier","acne"],
         skintype: ["acne", "normal", "dry", "oily", "barrier-broken"],
@@ -12,7 +12,7 @@ const products: Array<ProductType> = [
 
     },
     {
-        img: "https://cdn.stylevana.com/media/catalog/product/cache/5/image/9df78eab33525d08d6e5fb8d27136e95/i/s/isntree-yam-root-vegan-milk-cleanser-220ml-271.jpg",
+        img: "https://versedskin.com/cdn/shop/products/Versed-Skincare-Weekend-Glow-Daily-Brightening-Solution-03_1800x.jpg?v=1625114116",
         name: "Isntree Yam Root Cleanser",
         concerns: ["dry", "barrier-brokwn","normal", "acne","sensitive"],
         skintype: ["sensitive", "dry", "normal", "acne"],
@@ -30,7 +30,7 @@ const products: Array<ProductType> = [
 
     },
     {
-        img: "https://cdn.stylevana.com/media/catalog/product/cache/5/image/9df78eab33525d08d6e5fb8d27136e95/i/-/i-m-from-mugwort-essence-793.jpg",
+        img: "https://versedskin.com/cdn/shop/products/PressRestart_BodyLotion_01_1800x.jpg?v=1658271185",
         name: "I'm rice Toner",
         concerns: ["uneven"],
         skintype: ["sensitive", "acne"],

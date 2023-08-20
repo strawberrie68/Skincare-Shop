@@ -22,7 +22,9 @@ const Home = ({ isTopOfPage, setSelectedPage }: Props) => {
 
 
   return (
+    
     <section id="home" className="gap-16 py-10 md:h-full md:pb-0 bg-woman-glass md:bg-cover bg-contain w-full">
+        
 
         {/* IMAGE AND MAIN HEADER */}
         <div className="z-10 mt-12 md:basis-3/5 md:mt-3" >
