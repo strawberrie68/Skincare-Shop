@@ -3,7 +3,9 @@ import { createSlice } from "@reduxjs/toolkit"
 const cartSlice = createSlice ({
     name: "cart",
     initialState:{
-     
+        product: [],
+        quantity: 0,
+        price: 0
         
     },
     reducers:{
