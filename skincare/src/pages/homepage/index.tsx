@@ -5,6 +5,7 @@ import Home from "@/scenes/home";
 import Benefits from "@/scenes/benefits";
 import OurClasses from "@/scenes/ourClasses";
 import Quiz from "@/scenes/quiz";
+import Footer from "@/scenes/footer";
 
 
 
@@ -45,6 +46,7 @@ function Homepage() {
     setSelectedPage={setSelectedPage}
     isTopOfPage={isTopOfPage} 
     />
+    <Footer />
     
 
     

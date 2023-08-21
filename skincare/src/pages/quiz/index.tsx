@@ -26,9 +26,13 @@ const quiz = (props: Props) => {
 
 
   return (
-    <div>
-        <div>
+  
+    <div className="bg-white h-full gap-16 py-10 md:pb-0  w-full mt-12">
+        <div className="mx-auto w-5/6" >
+            <div>
              {quizQuextions[currentQuestion].question}
+            </div>
+             
         </div>
         
         
