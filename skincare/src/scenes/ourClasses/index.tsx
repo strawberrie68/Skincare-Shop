@@ -50,7 +50,7 @@ type Props = {
   setSelectedPage: (value: SelectedPage) => void;
 };
 
-const OurClasses = ({ isTopOfPage, setSelectedPage }: Props) => {
+const OurClasses = ({ setSelectedPage }: Props) => {
   return (
     <section id="ourroutines" className="w-full bg-primary-100 py-24">
       <motion.div

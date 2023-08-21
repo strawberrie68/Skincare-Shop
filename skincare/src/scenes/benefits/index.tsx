@@ -147,7 +147,7 @@ const Benefits = ({ isTopOfPage, setSelectedPage }: Props) => {
 
                     {/* BUTTON */}
                     <div className="relative mt-8">
-                    <div className="before:absolute before:-bottom-20 before:right-40 before:z-[-1] before:content-sparkles">
+                    <div className="before:absolute ">
                         <ActionButton 
                             setSelectedPage={setSelectedPage}
                             isTopOfPage={isTopOfPage}

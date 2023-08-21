@@ -4,7 +4,7 @@ import Logo from "@/assets/logo.png"
 import Link from "./Link";
 import { SelectedPage } from "@/shared/types";
 import useMediaQuery from "@/hooks/useMediaQuery";
-import ActionButton from "@/shared/ActionButton";
+import NavButton from "./NavButton";
 
 type Props = {
     isTopOfPage: boolean;
@@ -22,7 +22,7 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
   return (
     <nav>
         <div
-        className={` ${navbarBackground} ${flexBetween} fixed top-0 z-40 w-full py-6`}
+        className={` ${navbarBackground} ${flexBetween} fixed top-0 z-40 w-full py-6 `}
         >
             <div className={`${flexBetween} mx-auto w-5/6`}>
                 {/* LEFT SIDE */}
@@ -53,12 +53,12 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
                     selectedPage={selectedPage}
                     setSelectedPage={setSelectedPage}
                   />
-                 <ActionButton 
+                 <NavButton 
                     setSelectedPage={setSelectedPage}
                     isTopOfPage={isTopOfPage}
                  >
                     SHOP
-                  </ActionButton>
+                  </NavButton>
 
 
                 </div>

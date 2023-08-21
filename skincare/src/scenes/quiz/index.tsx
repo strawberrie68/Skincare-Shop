@@ -6,7 +6,7 @@ import AnchorLink from "react-anchor-link-smooth-scroll";
 
 
 type Props = {
-  isTopOfPage: Boolean;
+  isTopOfPage: boolean;
   setSelectedPage: (value: SelectedPage) => void;
 };
 
@@ -19,7 +19,7 @@ const Quiz = ({ isTopOfPage, setSelectedPage }: Props) => {
         className="flex m-auto w-full "
         onViewportEnter={() => setSelectedPage(SelectedPage.Quiz)}
       >
-        <div className="md:w-4/5 flex flex-col pt-56 px-10 ml-5 rounded-lg bg-primary-10">
+        <div className="md:w-3/4 flex flex-col md:pt-40 sm:pb-10 sm:pt-20 px-10 ml-5 rounded-lg bg-primary-10">
 
             {/* HEADER */}
             <motion.div
@@ -63,9 +63,9 @@ const Quiz = ({ isTopOfPage, setSelectedPage }: Props) => {
         {/* FORM AND IMAGE */}
         
             
-            <div className="w-full before:absolute before:-bottom-20 before:-right-10 before:z-[-1] md:before:content-evolvetext">
+            <div className="w-full  m-auto  before:absolute before:-bottom-20 before:-right-10 before:z-[-1] md:before:content-evolvetext">
               <img
-                className="w-1/2 m-auto rounded-lg"
+                className="w-full rounded-lg md:w-1/2 ml-4 md:ml-24 xs:hidden md:block sm:block sm:h-[384px] sm:object-cover md:h-[464px]"
                 alt="woman product"
                 src={womanProduct}
               />

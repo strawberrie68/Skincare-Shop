@@ -31,7 +31,7 @@ module.exports = {
        
       },
       content: {
-        sparkles: "url('./assets/sparkle.svg')",
+        
         skincareSwatch: "url('./assets/elements/skincareswatch2.png')",
         waterDroplet1: "url('./assets/waterdroplet1')",
         starCircle:"url('./assets/elements/star-circle.png')"
