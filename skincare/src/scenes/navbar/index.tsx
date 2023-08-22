@@ -4,8 +4,7 @@ import Logo from "@/assets/logo.png"
 import Link from "./Link";
 import { SelectedPage } from "@/shared/types";
 import useMediaQuery from "@/hooks/useMediaQuery";
-import NavButton from "./navButton"
-
+import NavButton from "./NavButton"
 type Props = {
     isTopOfPage: boolean;
     selectedPage: SelectedPage;
