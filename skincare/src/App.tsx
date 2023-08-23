@@ -5,7 +5,7 @@ import Home from "@/pages/homepage"
 import Quiz from "@/pages/quiz";
 // import Shop from "@/pages/shop"
 // import Cart from "@/pages/cart"
-import Footer from "./scenes/footer";
+
 
 import {
   BrowserRouter as Router,
@@ -46,7 +46,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/quiz" element={<Quiz />} />
-          
+
           {/* PAGES TO ADD/ OR IN PROGRESS */}
           {/* <Route path="/shop" element={<Shop />} />
           <Route path="/cart" element={<Cart />} /> */}
