@@ -1,3 +1,4 @@
+import { QuizType } from "@/shared/types"
 
 const quizQuestion: Array<QuizType> = [
     {
@@ -5,19 +6,19 @@ const quizQuestion: Array<QuizType> = [
         answerOptions: [
           {
             answer: "clear ance",
-            value: ["combo"]
+            value: ["tret"]
           },
           {
             answer: "wrinkles",
-            value: ["oily"]
+            value: ["tret"]
           },
           {
             answer: "roseasa",
-            value: ["dry"]
+            value: ["alzelic acid"]
           },
           {
             answer: "brightening",
-            value: ["oily"]
+            value: ["vitamin c"]
           },
         ]
     
@@ -27,19 +28,19 @@ const quizQuestion: Array<QuizType> = [
         answerOptions: [
           {
             answer: "zero or one pimple",
-            value: ["nicinamide, calming"]
+            value: ["nicinamide", "calming"]
           },
           {
             answer: "3 pimples",
-            value: ["niacinamide, extra calming, AHA, BHA"]
+            value: ["niacinamide", "mugwort", "AHA", "BHA"]
           },
           {
             answer: "Small, not easily noticed all over",
-            value: ["dry"]
+            value: ["tret"]
           },
           {
             answer: "Large or medium and only visible in the T-zone",
-            value: ["combo"]
+            value: ["tret", "spiro"]
           },
         ]
     
@@ -53,7 +54,7 @@ const quizQuestion: Array<QuizType> = [
         },
         {
           answer: "Medium-sized all over",
-          value: ["oily","combo"]
+          value: ["combo"]
         },
         {
           answer: "Small, not easily noticed all over",
@@ -70,7 +71,7 @@ const quizQuestion: Array<QuizType> = [
       question: "When does your skin look red",
       answerOptions: [
         {
-          answer: "Whenever and whereever I use new products",
+          answer: "red everyday",
           value: ["sensitive"]
         },
         {
@@ -88,72 +89,82 @@ const quizQuestion: Array<QuizType> = [
       ]
   
     },
-    {
-        question: "I would describe the shine of my skin like this",
+
+      // Tret questions
+      {
+        question: "Would you like to include tretinoin?",
         answerOptions: [
           {
-            answer: "Shiny in my T-zone, but dull on my cheeks",
-            value: ["combo"]
+            answer: "true",
+            value: "includeTret"
           },
           {
-            answer: "Bright like a diamond",
-            value: ["oily"]
+            answer: "false",
+            value: "skip"
           },
-          {
-            answer: "Dull everywhere",
-            value: ["dry"]
-          },
-          {
-            answer: "I get more stinging than shine",
-            value: ["sensitive"]
-          },
+   
         ]
     
       },
       {
-        question: "How does it feel when you touch your skin",
+        question: "Have you tried tretinoin?",
         answerOptions: [
           {
-            answer: "Rough and scaly",
-            value: ["combo"]
+            answer: "true",
+            value: "includeTret"
           },
           {
-            answer: "Oily in places and dry in others",
-            value: ["oily"]
+            answer: "false",
+            value: "skip"
           },
-          {
-            answer: "Irritated and angry",
-            value: ["dry"]
-          },
-          {
-            answer: "Slick and greasy",
-            value: ["oily"]
-          },
+   
         ]
     
       },
       {
-        question: "What is your problem area?",
+        question: "How did you react to tretinoin?",
         answerOptions: [
           {
-            answer: "Rough and scaly",
-            value: ["combo"]
+            answer: "zero",
+            value: "low"
           },
           {
-            answer: "Oily in places and dry in others",
-            value: ["oily"]
+            answer: "some peeling",
+            value: "mid"
           },
           {
-            answer: "Irritated and angry",
-            value: ["dry"]
+            answer: "burns",
+            value: "high"
+          },
+   
+        ]
+    
+      },
+      {
+        question: "Breastfeeding or pregnat",
+        answerOptions: [
+          {
+            answer: "I'm pregnant",
+            value: "true"
           },
           {
-            answer: "Slick and greasy",
-            value: ["oily"]
+            answer: "I'm breastfeeding",
+            value: "true"
           },
+          {
+            answer: "I'm trying to get pregnat",
+            value: "true"
+          },
+          {
+            answer: "None above",
+            value: "false"
+          },
+   
         ]
     
       },
     
   
   ];
+
+  export default quizQuestion

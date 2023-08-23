@@ -1,14 +1,16 @@
-import { SkinType } from "@/shared/types"
+import { SkinType, QuizType} from "@/shared/types"
 import { useState } from "react"
+import quizQuestion from "@/shared/quiz"
 
 
 type Props = {
 
 
 }
+const quizQuextions = quizQuestion
 
-const Quiz = (props: Props) => {
-    let [ skinQuiz, setSkinQuiz] = useState<SkinType>({
+const quiz = (props: Props) => {
+    let [ skinquiz, setSkinquiz] = useState<SkinType>({
         skintype: "",
         isSensitive: true,
         concerns:[],
@@ -20,9 +22,14 @@ const Quiz = (props: Props) => {
         },
         acneLevel: "none",
     })
+    let [currentQuestion, setCurrentQuestion] = useState(0)
+
 
   return (
     <div>
+        <div>
+             {quizQuextions[currentQuestion].question}
+        </div>
         
         
         
@@ -32,4 +39,4 @@ const Quiz = (props: Props) => {
   )
 }
 
-export default Quiz
+export default quiz

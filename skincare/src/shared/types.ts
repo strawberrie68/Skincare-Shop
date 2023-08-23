@@ -42,3 +42,14 @@ export enum SelectedPage {
     acneLevel:String,
 
   }
+
+  export interface QuizType {
+    question: String
+    answerOptions:{
+      answer: String,
+      value: (String | boolean)[] | String,
+    }[]
+  }[]
+
+   
+  
