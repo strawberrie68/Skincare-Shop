@@ -9,7 +9,7 @@ const Footer = () => {
           <p className="my-5">
           Unlock Your Radiant Skin: Your Personalized Skincare Journey Starts Here. Where the secret to your best skin awaits.
           </p>
-          <p>© Evogym All Rights Reserved.</p>
+          <p>© Daily.Routine All Rights Reserved.</p>
         </div>
         <div className="mt-16 basis-1/4 md:mt-0">
           <h4 className="font-bold">Links</h4>

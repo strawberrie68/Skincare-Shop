@@ -3,7 +3,9 @@ import Logo from "@/assets/logo.png"
 import useMediaQuery from "@/hooks/useMediaQuery";
 import { useState } from "react";
 import { Link } from 'react-router-dom';
-// import Badge from '@mui/material/Badge';
+import { useAppSelector } from "@/hooks/reduxHook";
+import Badge from '@mui/material/Badge';
+
 
 
 
@@ -11,6 +13,7 @@ const NavBar = () => {
   const flexBetween = "flex items-center justify-between";
   const isAboveMediumScreens = useMediaQuery("(min-width: 1060px)");
   const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
+  const cart = useAppSelector(state => state.cart.product).length
 
   return (
     <nav>
@@ -19,9 +22,12 @@ const NavBar = () => {
       >
         <div className={`${flexBetween} mx-auto w-5/6`}>
           {/* LEFT SIDE */}
-          <div className="basis-1/5 mr-4 xs:basis-1/3">
-            <img className="bject-scale-down" src={Logo} alt="logo" />
-          </div>
+          <Link to="/">
+            <div className="basis-1/5 mr-4 xs:basis-1/3">
+              <img className="bject-scale-down" src={Logo} alt="logo" />
+            </div>
+          </Link>
+
           {/* RIGHT SIDE */}
           {isAboveMediumScreens ? (
 
@@ -35,9 +41,18 @@ const NavBar = () => {
               <Link to="/cart">
                 <span className={`flex `}>
 
-                  {/* <Badge className='text-sm' badgeContent="1" color="primary" > */}
-                  <ShoppingBagIcon className="h-6 w-6 text-primary-500" />
-                  {/* </Badge> */}
+                  <Badge
+                    className='text-sm'
+                    badgeContent={cart}
+                    sx={{
+                      "& .MuiBadge-badge": {
+                        color: "black",
+                        backgroundColor: "white"
+                      }
+                    }}
+                  >
+                    <ShoppingBagIcon className="h-6 w-6 text-primary-500" />
+                  </Badge>
                 </span>
               </Link>
 

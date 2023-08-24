@@ -1,34 +1,33 @@
 import { createSlice } from "@reduxjs/toolkit"
 import type { PayloadAction } from '@reduxjs/toolkit'
-import type { RootState } from '@/redux/store'
 import { ProductType } from "@/shared/types"
 
 
 
 interface cartState {
     product: ProductType[],
-    total : Number
-   
+    // total: number,
 }
 
 const initialState: cartState = {
     product: [],
-    total: 0
+    // total: 0,
+}
 
-  }
-
-
-const cartSlice = createSlice ({
-    name: "cart",
+  
+  export const cartSlice = createSlice({
+    name: 'cart',
     initialState,
-    reducers:{
-        addProduct(state, action: PayloadAction<ProductType[]>) {
-            state.product= action.payload;
-            },
-        
-        
-    }})
+    reducers: {
+      addToCart: (state, action: PayloadAction<ProductType>) => {
+        state.product.push(action.payload) 
+      }
+    }
+  })
 
-export const { addProduct } = cartSlice.actions
-export const userSelector = (state: RootState) => state.userReducer;
+
+
+
+export const { addToCart } = cartSlice.actions
+
 export default cartSlice.reducer
