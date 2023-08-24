@@ -6,6 +6,7 @@ import Benefits from "@/scenes/benefits";
 import OurClasses from "@/scenes/ourClasses";
 import Quiz from "@/scenes/quiz";
 import Footer from "@/scenes/footer";
+import Navbar from "@/scenes/navbar";
 
 
 
@@ -29,6 +30,11 @@ function Homepage() {
 
   return (
    <div className='app bg-gray-20'> 
+      <Navbar
+       isTopOfPage={isTopOfPage}
+       selectedPage={selectedPage}
+       setSelectedPage={setSelectedPage}
+    />
 
     <Home 
       setSelectedPage={setSelectedPage}
