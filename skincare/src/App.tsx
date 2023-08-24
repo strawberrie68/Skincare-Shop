@@ -1,11 +1,17 @@
 import Navbar from "@/scenes/navbar"
 import { useEffect, useState } from "react";
 import { SelectedPage } from "@/shared/types";
-import Home from "./scenes/home";
-import Benefits from "./scenes/benefits";
-import OurClasses from "./scenes/ourClasses";
-import Quiz from "./scenes/quiz";
-import Footer from "./scenes/footer";
+import Home from "@/pages/homepage"
+import Quiz from "@/pages/quiz";
+// import Shop from "@/pages/shop"
+// import Cart from "@/pages/cart"
+
+
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom"
 
 function App() {
   const [selectedPage, setSelectedPage] = useState<SelectedPage>(
@@ -27,28 +33,28 @@ function App() {
 
   return (
    <div className='app bg-gray-20'> 
+
+
+    <Router>
     <Navbar
        isTopOfPage={isTopOfPage}
        selectedPage={selectedPage}
        setSelectedPage={setSelectedPage}
     />
-    <Home 
-      setSelectedPage={setSelectedPage}
-      isTopOfPage={isTopOfPage}
-    />
-    <Benefits 
-      setSelectedPage={setSelectedPage}
-      isTopOfPage={isTopOfPage}
-    />
-    <OurClasses
-      setSelectedPage={setSelectedPage}
-      isTopOfPage={isTopOfPage}
-    />
-    <Quiz
-    setSelectedPage={setSelectedPage}
-    isTopOfPage={isTopOfPage} 
-    />
-    <Footer />
+
+
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/quiz" element={<Quiz />} />
+
+          {/* PAGES TO ADD/ OR IN PROGRESS */}
+          {/* <Route path="/shop" element={<Shop />} />
+          <Route path="/cart" element={<Cart />} /> */}
+          
+
+        </Routes>
+        
+      </Router>
 
    </div>
   )
