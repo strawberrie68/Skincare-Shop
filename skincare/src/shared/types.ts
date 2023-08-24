@@ -22,8 +22,8 @@ export enum SelectedPage {
   export interface ProductType {
     img: string;
     name: string;
-    concerns: string[];
-    skintype: string[];
+    concerns?: string[];
+    skintype?: string[];
     price: number;
     category: string;
   }
