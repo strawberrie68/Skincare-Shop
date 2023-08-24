@@ -1,11 +1,12 @@
-import Product from "@/shared/products"
+// import Product from "@/shared/products"
 import { ProductType } from "@/shared/types"
 import ProductCard from "@/componets/productCard";
+import NavBar from "@/componets/NavBar";
 
 type Props = {}
 const products: Array<ProductType> = [
   {
-      img: "https://m.media-amazon.com/images/I/61FxWlEC6yL._AC_SL1500_.jpg",
+      img: "https://versedskin.com/cdn/shop/products/Versed-Skincare-Weekend-Glow-Daily-Brightening-Solution-03_1800x.jpg?v=1625114116",
       name: "CeraVe SALICYLIC ACID Cleanser",
       concerns: ["barrier","acne"],
       skintype: ["acne", "normal", "dry", "oily", "barrier-broken"],
@@ -14,7 +15,7 @@ const products: Array<ProductType> = [
 
   },
   {
-      img: "https://cdn.stylevana.com/media/catalog/product/cache/5/image/9df78eab33525d08d6e5fb8d27136e95/i/s/isntree-yam-root-vegan-milk-cleanser-220ml-271.jpg",
+      img: "https://versedskin.com/cdn/shop/products/HYDRATINGMILKTONER_LABEL_241_v2_1800x.jpg?v=1656434566",
       name: "Isntree Yam Root Cleanser",
       concerns: ["dry", "barrier-brokwn","normal", "acne","sensitive"],
       skintype: ["sensitive", "dry", "normal", "acne"],
@@ -23,7 +24,7 @@ const products: Array<ProductType> = [
 
   },
   {
-      img: "https://cdn.stylevana.com/media/catalog/product/cache/5/image/9df78eab33525d08d6e5fb8d27136e95/i/-/i-m-from-mugwort-essence-793.jpg",
+      img: "https://versedskin.com/cdn/shop/products/MoistureMaker_01_1800x.jpg?v=1659404200",
       name: "I'm from Mugwort",
       concerns: ["broken-barrier", "acne"],
       skintype: ["sensitive", "acne"],
@@ -32,7 +33,7 @@ const products: Array<ProductType> = [
 
   },
   {
-      img: "https://cdn.stylevana.com/media/catalog/product/cache/5/image/9df78eab33525d08d6e5fb8d27136e95/i/-/i-m-from-mugwort-essence-793.jpg",
+      img: "https://versedskin.com/cdn/shop/products/SundayMorning_BottleFront_1800x.jpg?v=1625113997",
       name: "I'm rice Toner",
       concerns: ["uneven"],
       skintype: ["sensitive", "acne"],
@@ -41,7 +42,7 @@ const products: Array<ProductType> = [
 
   },
   {
-      img: "https://cdn.stylevana.com/media/catalog/product/cache/5/image/9df78eab33525d08d6e5fb8d27136e95/i/-/i-m-from-mugwort-essence-793.jpg",
+      img: "https://versedskin.com/cdn/shop/products/Dermaplaner_CapOff_PDP_54693c7f-b18a-450a-acef-c45378172b9b_1800x.jpg?v=1622745393",
       name: "ANUA - Heartleaf 77% Soothing Toner",
       concerns: ["barrier-broken", "sensitive"],
       skintype: ["sensitive", "acne","all"],
@@ -50,7 +51,7 @@ const products: Array<ProductType> = [
 
   },
   {
-      img: "https://cdn.stylevana.com/media/catalog/product/cache/5/image/9df78eab33525d08d6e5fb8d27136e95/i/-/i-m-from-mugwort-essence-793.jpg",
+      img: "https://versedskin.com/cdn/shop/products/Versed-Skincare-Silk-Slip-Conditioning-Lip-Oil-01_1800x.jpg?v=1625114228",
       name: "Roundlab Toner",
       concerns: ["uneven", "acne", "normal", "barrier-broken"],
       skintype: ["sensitive", "acne", "all", "normal"],
@@ -59,7 +60,7 @@ const products: Array<ProductType> = [
 
   },
   {
-      img: "https://cdn.stylevana.com/media/catalog/product/cache/5/image/9df78eab33525d08d6e5fb8d27136e95/b/e/beauty-of-joseon-dynasty-cream-50ml-899.jpg",
+      img: "https://versedskin.com/cdn/shop/products/2022_RetinolBundle_01_1cc900b3-a554-46e8-af06-b9f161ec0b1e_1800x.jpg?v=1669846382",
       name: "Dynasty Cream",
       concerns: ["dry", "wrinkles"],
       skintype: ["dry"],
@@ -68,7 +69,7 @@ const products: Array<ProductType> = [
 
   },
   {
-      img: "https://cdn.stylevana.com/media/catalog/product/cache/5/image/9df78eab33525d08d6e5fb8d27136e95/b/e/beauty-of-joseon-dynasty-cream-50ml-899.jpg",
+      img: "https://versedskin.com/cdn/shop/products/SmoothLanding_01_42bf8331-c0f6-4b91-907c-a6cf90ddd8dc_1800x.jpg?v=1675983294",
       name: "Hatmugi moisturizer",
       concerns: ["oily"],
       skintype: ["oily", "all"],
@@ -77,7 +78,7 @@ const products: Array<ProductType> = [
 
   },
   {
-      img: "https://cdn.stylevana.com/media/catalog/product/cache/5/image/9df78eab33525d08d6e5fb8d27136e95/b/e/beauty-of-joseon-dynasty-cream-50ml-899.jpg",
+      img: "https://versedskin.com/cdn/shop/products/SHOT9_SKINSOAK_FRONT_V1_1800x.jpg?v=1681155870",
       name: "Dynasty Cream",
       concerns: ["dry", "wrinkles"],
       skintype: ["dry"],
@@ -94,28 +95,41 @@ const Shop = (props: Props) => {
 
 
   return (
-    <div className="bg-white h-full gap-16 py-10 md:pb-0  w-full mt-12">
-    <div className="mx-auto w-5/6" >
-       <h1>Shop</h1>
-       {products.map((product: ProductType ) => (
-          <ProductCard 
-              img={product.img}
-          
-          />
-       ))}
+    <div>
+      <NavBar />
 
-       
-
-
+      <div className="bg-white h-full gap-16 py-10 md:pb-0  w-full mt-12">
+      <div className="mx-auto w-5/6" >
+         <h1>Shop</h1>
+         <div className=" grid grid-cols-3 gap-4">
+          {products.map((product: ProductType ) => (
+              <ProductCard 
+                  img={product.img}
+                  name={product.name}
+                  price={product.price}
+                  category={product.category}
+              />
+          ))}
+  
+  
+         </div>
+  
+   
+  
          
-    </div>
+  
+  
+           
+      </div>
+      
+      
+      
+  
+  
+  </div>
+  </div>
+    )
+  }
     
-    
-    
-
-
-</div>
-  )
-}
 
 export default Shop
