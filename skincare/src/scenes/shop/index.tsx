@@ -1,8 +1,8 @@
 type Props = {
-    img: String;
-    name: String;
-    concerns: String[];
-    skintype: String[];
+    img: string;
+    name: string;
+    concerns: string[];
+    skintype: string[];
     price: Number
 }
 
