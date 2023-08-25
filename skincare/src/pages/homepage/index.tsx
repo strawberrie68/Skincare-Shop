@@ -7,6 +7,7 @@ import OurClasses from "@/scenes/ourClasses";
 import Quiz from "@/scenes/quiz";
 import Footer from "@/scenes/footer";
 import Navbar from "@/scenes/navbar";
+import Shop from "@/scenes/shop";
 
 
 
@@ -48,6 +49,7 @@ function Homepage() {
       setSelectedPage={setSelectedPage}
       isTopOfPage={isTopOfPage}
     />
+    <Shop />
     <Quiz
     setSelectedPage={setSelectedPage}
     isTopOfPage={isTopOfPage} 
