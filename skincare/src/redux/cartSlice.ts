@@ -5,12 +5,12 @@ import { ProductType } from "@/shared/types"
 
 
 interface cartState {
-    product: ProductType[],
+    products: ProductType[],
     // total: number,
 }
 
 const initialState: cartState = {
-    product: [],
+    products: [],
     // total: 0,
 }
 
@@ -20,14 +20,19 @@ const initialState: cartState = {
     initialState,
     reducers: {
       addToCart: (state, action: PayloadAction<ProductType>) => {
-        state.product.push(action.payload) 
-      }
+        state.products.push(action.payload) 
+      },
+      // removeFromCart:(state, action) => {
+    
+      // },
+      reset: () => initialState,
+      
     }
   })
 
 
 
 
-export const { addToCart } = cartSlice.actions
+export const { addToCart, reset } = cartSlice.actions
 
 export default cartSlice.reducer
