@@ -22,9 +22,11 @@ const initialState: cartState = {
       addToCart: (state, action: PayloadAction<ProductType>) => {
         state.products.push(action.payload) 
       },
-      // removeFromCart:(state, action) => {
-    
-      // },
+      removeFromCart:(state, action) => {
+        const productNames = state.products.map(product => product.name);
+        const index = productNames.indexOf(action.payload.name);
+        state.products.splice(index,1)
+      },
       reset: () => initialState,
       
     }
@@ -33,6 +35,6 @@ const initialState: cartState = {
 
 
 
-export const { addToCart, reset } = cartSlice.actions
+export const { addToCart, reset, removeFromCart } = cartSlice.actions
 
 export default cartSlice.reducer

@@ -64,12 +64,34 @@ const NavBar = () => {
 
 
           ) : (
-            <button
-              className="rounded-full bg-gradient-to-r from-gray-700 via-neutral-800 to-black p-2"
-              onClick={() => setIsMenuToggled(!isMenuToggled)}
-            >
-              <Bars3Icon className="h-6 w-6 text-primary-500" />
-            </button>)
+            <div className="flex justify-center items-center">
+              <Link to="/cart">
+                <span className={`flex mr-6`}>
+
+                  <Badge
+                    className='text-sm'
+                    badgeContent={cart}
+                    sx={{
+                      "& .MuiBadge-badge": {
+                        color: "black",
+                        backgroundColor: "white"
+                      }
+                    }}
+                  >
+                    <ShoppingBagIcon className="h-6 w-6 text-primary-500" />
+                  </Badge>
+                </span>
+              </Link>
+              <button
+                className="rounded-full bg-gradient-to-r from-gray-700 via-neutral-800 to-black p-2"
+                onClick={() => setIsMenuToggled(!isMenuToggled)}
+              >
+                <Bars3Icon className="h-6 w-6 text-primary-500" />
+              </button>
+            </div>
+          )
+
+
           }
 
         </div>
@@ -83,15 +105,26 @@ const NavBar = () => {
           {/* CLOSE ICON */}
           <div className="flex justify-end p-12">
             <button onClick={() => setIsMenuToggled(!isMenuToggled)}>
+
               <XMarkIcon className="h-6 w-6 text-gray-600" />
             </button>
           </div>
 
           {/* MENU ITEMS */}
           <div className="ml-[33%] flex flex-col gap-10 text-2xl">
-            <p>QUIZ</p>
-            <p>CART</p>
-            <p>CONTACT</p>
+            <Link to="/">
+              <p className="hover:text-white">HOME</p>
+            </Link>
+            <Link to="/quiz">
+              <p className="hover:text-white">QUIZ</p>
+            </Link>
+
+            <Link to="/shop">
+              <p className="hover:text-white">SHOP</p>
+            </Link>
+            <Link to="/cart">
+              <p className="hover:text-white">CART</p>
+            </Link>
           </div>
         </div>
       )}
