@@ -6,8 +6,6 @@ import CartCard from "./CartCard";
 import { Link } from 'react-router-dom';
 
 
-
-
 const Cart = () => {
   const cart = useAppSelector(state => state.cart.products)
   const dispatch = useAppDispatch();

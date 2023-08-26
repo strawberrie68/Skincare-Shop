@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="mt-16 basis-1/2 md:mt-0">
           <img alt="logo" src={Logo} />
           <p className="my-5">
-          Unlock Your Radiant Skin: Your Personalized Skincare Journey Starts Here. Where the secret to your best skin awaits.
+            Unlock Your Radiant Skin: Your Personalized Skincare Journey Starts Here. Where the secret to your best skin awaits.
           </p>
           <p>© Daily.Routine All Rights Reserved.</p>
         </div>

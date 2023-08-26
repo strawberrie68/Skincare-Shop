@@ -16,11 +16,11 @@ const Routine = ({ name, description, image }: Props) => {
         <p className="text-2xl">{name}</p>
         <p className="mt-5">{description}</p>
       </div>
-   
+
       <img className="rounded-lg h-[380px] w-[450px]" alt={`${image}`} src={image} />
 
-      
-     
+
+
     </li>
   );
 };

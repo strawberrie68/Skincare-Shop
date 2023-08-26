@@ -7,7 +7,7 @@ import products from "@/shared/products"
 
 
 const Shop = () => {
-    
+
     return (
         <div className="">
             <NavBar />

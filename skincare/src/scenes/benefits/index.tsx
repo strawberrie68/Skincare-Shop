@@ -146,16 +146,16 @@ const Benefits = ({ isTopOfPage, setSelectedPage }: Props) => {
             </motion.div>
 
             {/* BUTTON */}
-            <motion.div 
-                className="relative mt-8"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.5 }}
-                transition={{ delay: 0.2, duration: 0.5 }}
-                variants={{
-                  hidden: { opacity: 0, x: -50 },
-                  visible: { opacity: 1, x: 0 },
-            }}
+            <motion.div
+              className="relative mt-8"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ delay: 0.2, duration: 0.5 }}
+              variants={{
+                hidden: { opacity: 0, x: -50 },
+                visible: { opacity: 1, x: 0 },
+              }}
             >
               <div className="before:absolute ">
                 <ActionButton

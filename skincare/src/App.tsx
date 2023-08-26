@@ -15,24 +15,22 @@ import {
 function App() {
 
   return (
-   <div className='app bg-gray-20'> 
+    <div className='app bg-gray-20'>
 
 
-    <Router>
-  
+      <Router>
 
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/quiz" element={<Quiz />} />
           <Route path="/shop" element={<Shop />} />
           <Route path="/cart" element={<Cart />} />
-          
 
         </Routes>
-        
+
       </Router>
 
-   </div>
+    </div>
   )
 }
 
