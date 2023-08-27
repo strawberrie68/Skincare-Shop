@@ -1,5 +1,5 @@
 import { SkinType, QuizType } from "@/shared/types";
-import quizQuestion from "@/shared/quiz";
+
 import NavBar from "@/componets/NavBar"
 
 
@@ -7,12 +7,8 @@ import NavBar from "@/componets/NavBar"
 
 
 // }
-const quizQuextions = quizQuestion
 
 const quiz = () => {
-
-  // let [currentQuestion, setCurrentQuestion] = useState(0)
-
 
   return (
     <div className="bg-white h-full">
@@ -21,6 +17,9 @@ const quiz = () => {
         <div className="mx-auto w-5/6" >
           
           <p>Quiz</p>
+
+
+
         </div>
 
       </div>

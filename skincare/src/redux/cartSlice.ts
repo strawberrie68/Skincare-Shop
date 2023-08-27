@@ -6,12 +6,12 @@ import { ProductType } from "@/shared/types"
 
 interface cartState {
   products: ProductType[],
-  // total: number,
+
 }
 
 const initialState: cartState = {
   products: [],
-  // total: 0,
+
 }
 
 
