@@ -4,6 +4,7 @@ import Home from "@/pages/homepage";
 import Quiz from "@/pages/quiz";
 import Shop from "@/pages/shop";
 import Cart from "@/pages/cart";
+import "@/App.css"
 
 import Quiz1 from "@/pages/quiz/QuizQ1";
 import Quiz2 from "@/pages/quiz/QuizQ2";
@@ -31,13 +32,13 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/quiz" element={<Quiz />} />
-               <Route path="/quiz-1" element={<Quiz1 />} />
-               <Route path="/quiz-2" element={<Quiz2 />} />
-               <Route path="/quiz-3" element={<Quiz3 />} />
-               <Route path="/quiz-4" element={<Quiz4 />} />
-               <Route path="/quiz-5" element={<Quiz5 />} />
-               <Route path="/quiz-6" element={<Quiz6 />} />
-
+          {/* QUIZ QUESTIONS */}
+            <Route path="/quiz-1" element={<Quiz1 />} />
+            <Route path="/quiz-2" element={<Quiz2 />} />
+            <Route path="/quiz-3" element={<Quiz3 />} />
+            <Route path="/quiz-4" element={<Quiz4 />} />
+            <Route path="/quiz-5" element={<Quiz5 />} />
+            <Route path="/quiz-6" element={<Quiz6 />} />
           <Route path="/shop" element={<Shop />} />
           <Route path="/cart" element={<Cart />} />
 

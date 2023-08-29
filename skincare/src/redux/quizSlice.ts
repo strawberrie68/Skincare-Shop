@@ -33,12 +33,12 @@ const quizSlice = createSlice({
   name: "quiz",
   initialState,
   reducers: {
-    skintype: (state, action) => { state.skintype = action.payload },
+    chooseSkintype: (state, action) => { state.skintype = action.payload },
     isSensitive: (state, action) => { state.isSensitive = action.payload },
     mainGoal: (state, action) => { state.mainGoal = action.payload },
     allConcerns: (state, action) => { state.concerns = action.payload },
     wantTret: (state, action) => { state.tret.want = action.payload },
-    triedTret: (state, action) => { state.tret.tried= action.payload },
+    triedTret: (state, action) => { state.tret.tried = action.payload },
     tretIrritation: (state, action) => { state.tret.irritationLevel = action.payload },
     pregnant: (state, action) => { state.tret.pregnant = action.payload },
     acneLevel: (state, action) => { state.acneLevel = action.payload },
@@ -46,6 +46,6 @@ const quizSlice = createSlice({
   }
 })
 
-export const { } = quizSlice.actions
+export const { chooseSkintype, isSensitive, mainGoal, allConcerns, wantTret, triedTret, tretIrritation, pregnant, acneLevel } = quizSlice.actions
 
 export default quizSlice.reducer
