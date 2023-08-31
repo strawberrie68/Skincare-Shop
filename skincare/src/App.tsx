@@ -1,17 +1,19 @@
-// import { useEffect, useState } from "react";
-// import { SelectedPage } from "@/shared/types";
+
 import Home from "@/pages/homepage";
-import Quiz from "@/pages/quiz";
 import Shop from "@/pages/shop";
 import Cart from "@/pages/cart";
 import "@/App.css"
 
-import Quiz1 from "@/pages/quiz/QuizQ1";
-import Quiz2 from "@/pages/quiz/QuizQ2";
-import Quiz3 from "@/pages/quiz/QuizQ3";
-import Quiz4 from "@/pages/quiz/QuizQ4";
-import Quiz5 from "@/pages/quiz/QuizQ5";
-import Quiz6 from "@/pages/quiz/QuizQ6";
+
+
+import V2Quiz1 from "@/pages/quiz2/step1"
+import Step2 from "@/pages/quiz2/Step2"
+import Step3  from "@/pages/quiz2/Step3"
+import Step4  from "@/pages/quiz2/Step4"
+import Step5  from "@/pages/quiz2/Step5"
+import Step6  from "@/pages/quiz2/Step6"
+import Step7  from "@/pages/quiz2/Step7"
+import Step8  from "@/pages/quiz2/Step8"
 
 
 
@@ -31,14 +33,16 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/quiz" element={<Quiz />} />
+          
           {/* QUIZ QUESTIONS */}
-            <Route path="/quiz-1" element={<Quiz1 />} />
-            <Route path="/quiz-2" element={<Quiz2 />} />
-            <Route path="/quiz-3" element={<Quiz3 />} />
-            <Route path="/quiz-4" element={<Quiz4 />} />
-            <Route path="/quiz-5" element={<Quiz5 />} />
-            <Route path="/quiz-6" element={<Quiz6 />} />
+            <Route path="/quiz" element={<V2Quiz1  />} />
+            <Route path="/step-2" element={<Step2 />} />
+            <Route path="/step-3" element={<Step3 />} />
+            <Route path="/step-4" element={<Step4 />} />
+            <Route path="/step-5" element={<Step5 />} />
+            <Route path="/step-6" element={<Step6 />} />
+            <Route path="/step-7" element={<Step7 />} />
+            <Route path="/step-8" element={<Step8 />} />
           <Route path="/shop" element={<Shop />} />
           <Route path="/cart" element={<Cart />} />
 

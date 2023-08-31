@@ -1,18 +1,36 @@
-import { SkinType, QuizType } from "@/shared/types";
-import { useForm, SubmitHandler } from "react-hook-form";
+// import { useForm, SubmitHandler } from "react-hook-form";
 import NavBar from "@/componets/NavBar"
+// import { DevTool } from "@hookform/devtools"
 import { useState } from "react";
-import { DevTool } from "@hookform/devtools"
-import Dry from "@/assets/quizIcons/Catus.svg"
-import Normal from "@/assets/quizIcons/Cloud.svg"
-import Combo from "@/assets/quizIcons/CloudSun.svg"
-import Oily from "@/assets/quizIcons/Umbrella.svg"
+
 import { ChevronRightIcon } from "@heroicons/react/20/solid";
+import { ChevronLeftIcon } from "@heroicons/react/20/solid";
+import { useMultiStepForm } from "./useMultiStepForm";
 
+import QuizQ1 from "./QuizQ1";
+import QuizQ2 from "./QuizQ2";
+import QuizQ3 from "./QuizQ3";
+// // import QuizQ4 from "./QuizQ4";
+// import QuizQ5 from "./QuizQ5";
+// import QuizQ6 from "./QuizQ6";
+import { FormEvent } from "react";
 
-type FormValues = {
+// type FormValues = {
+//   skintype: string,
+//   isSensitive: boolean,
+//   mainGoal: string,
+//   concerns: string[],
+//   tret: {
+//     want: boolean,
+//     tried: boolean,
+//     irritationLevel: string,
+//     pregnant: boolean,
+//   },
+//   acneLevel: string,
+// };
+type FormData = {
   skintype: string,
-  isSensitive: boolean,
+  isSensitive: string,
   mainGoal: string,
   concerns: string[],
   tret: {
@@ -22,28 +40,67 @@ type FormValues = {
     pregnant: boolean,
   },
   acneLevel: string,
-};
+
+}
+
+const INITAL_DATA: FormData = {
+  skintype: "normal",
+  isSensitive: "false",
+  mainGoal: "none",
+  concerns: [],
+  tret: {
+    want: false,
+    tried: false,
+    irritationLevel: "low",
+    pregnant: false,
+  },
+  acneLevel: "low",
+
+
+}
 
 const quiz = () => {
-  const { register, handleSubmit, control, } = useForm<FormValues>({
-    defaultValues: {
-      skintype: "normal",
-      isSensitive: false,
-      mainGoal: "none",
-      concerns: [],
-      tret: {
-        want: false,
-        tried: false,
-        irritationLevel: "low",
-        pregnant: false,
-      },
-      acneLevel: "low",
+  const [ data, setData ] = useState(INITAL_DATA);
+  function updateFields (fields: Partial<FormData>){
+    setData(prev => {
+      return {...prev, ...fields}
+    })
+  }
 
-    }
-  });
 
-  const onSubmit: SubmitHandler<FormValues> = data => console.log(data);
-  const [formStep, setFormStep] = useState(0)
+  // const { register, handleSubmit, control, } = useForm<FormValues>({
+  //   defaultValues: {
+  //     skintype: "normal",
+  //     isSensitive: false,
+  //     mainGoal: "none",
+  //     concerns: [],
+  //     tret: {
+  //       want: false,
+  //       tried: false,
+  //       irritationLevel: "low",
+  //       pregnant: false,
+  //     },
+  //     acneLevel: "low",
+
+  //   }
+  // });
+
+  const { step, isFirstStep, back, next,isLastStep } = useMultiStepForm([
+    <QuizQ1 {...data} updateFields={updateFields}/>,
+    <QuizQ2 {...data} updateFields={updateFields}/>, 
+    <QuizQ3 {...data} updateFields={updateFields}/>, 
+    // <QuizQ4 {...data} updateFields={updateFields}/>, 
+    // <QuizQ5 {...data} updateFields={updateFields}/>,
+    // <QuizQ6 {...data} updateFields={updateFields}/>
+  ])
+
+  function onSubmit (e: FormEvent){
+    e.preventDefault();
+    next();
+
+  }
+  console.log(data)
+
 
   return (
     <div className="bg-white h-full">
@@ -52,61 +109,43 @@ const quiz = () => {
         <div className="mx-auto w-5/6" >
 
           <p className="mt-16 text-3xl bold">Quiz</p>
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form onSubmit={(onSubmit)}>
             <section>
-              <div className="mt-4">
-                <p>What is your skintype?</p>
 
+              {step}
+     
+            <div className="flex justify-end">
 
-                <div className="flex mt-6 ">
-                  <div className="radio-btn p-2 ">
-                    <label className=" h-[200px] flex flex-col text-center py-8 px-2 border-2  border-gray-05 cursor-pointer bg-white opacity-75 rounded-xl hover:shadow-slate-300 hover:shadow-lg ">
-                      <input className="hidden" type="radio" {...register("skintype")} value="dry"  />
-                      <img className="w-10  bg-primary-10 mb-4 m-auto border-2 p-2 rounded-3xl" src={Dry} />
-                      <span className="text-xl text-gray-400 tracking-widest pt-2">DRY</span>
-                      <span className="w-40 text-xs m-auto mt-2 text-gray-400">Skin that is scaley and flaky. Feels tight after washing</span>
-                    </label>
-                  </div>
-                  <div className="radio-btn p-2 ">
-                    <label className=" h-[200px] flex flex-col text-center py-8 px-2 border-2  border-gray-05 cursor-pointer bg-white opacity-75 rounded-xl hover:shadow-slate-300 hover:shadow-lg ">
-                      <input className="hidden" type="radio" {...register("skintype")} value="normal"  />
-                      <img className="w-10 bg-primary-10 mb-4 m-auto border-2 p-2 rounded-3xl" src={Normal} />
-                      <span className="text-xl text-gray-400 tracking-widest pt-2">NORMAL</span>
-                      <span className="w-40 text-xs m-auto mt-2 text-gray-400">Doesn't feel dry or oily after washing</span>
-                    </label>
-                  </div>
-                  <div className="radio-btn p-2 ">
-                    <label className=" h-[200px] flex flex-col text-center py-8 px-2 border-2  border-gray-05 cursor-pointer bg-white opacity-75 rounded-xl hover:shadow-slate-300 hover:shadow-lg ">
-                      <input className="hidden" type="radio" {...register("skintype")} value="dry"  />
-                      <img className="w-10 bg-primary-10 mb-4 m-auto border-2 p-2 rounded-3xl" src={Combo} />
-                      <span className="text-xl text-gray-400 tracking-widest pt-2">COMBO</span>
-                      <span className="w-40 text-xs m-auto mt-2 text-gray-400">Skin that feel oily in the t-zone and normal/dry on the cheeks</span>
-                    </label>
-                  </div>
-                  <div className="radio-btn p-2 ">
-                    <label className=" h-[200px] flex flex-col text-center py-8 px-2 border-2  border-gray-05 cursor-pointer bg-white opacity-75 rounded-xl hover:shadow-slate-300 hover:shadow-lg ">
-                      <input className="hidden" type="radio" {...register("skintype")} value="dry"  />
-                      <img className="w-10 bg-primary-10 mb-4 m-auto border-2 p-2 rounded-3xl" src={Oily} />
-                      <span className="text-xl text-gray-400 tracking-widest pt-2">OILY</span>
-                      <span className="w-40 text-xs m-auto mt-2 text-gray-400">Skin is oily immedaitely after washing</span>
-                    </label>
-                  </div>
-
-                </div>
-              </div>
-              <div className="flex justify-end">
-                <button className="border w-30 mt-8 h-8 px-4 rounded-lg bg-gradient-to-r from-gray-700 via-neutral-800 to-black text-white hover: hover:text-primary-500 hover:shadow-lg hover:shadow-primary-10">
+            { !isFirstStep &&
+             <button 
+              className="border w-30 mt-8 h-8 px-4 rounded-lg m-2 text-gray-600 hover:text-primary-500 hover:shadow-lg hover:shadow-amber-100 "
+              type="button"
+              onClick={back}
+            >
                   <div className="flex justify-center items-center">
-                  <span className="ml-2">Next</span> 
-                    <ChevronRightIcon className="h-6 w-6 "/>
-
+                    <ChevronLeftIcon className="h-6 w-6 " />
+                    <span className="ml-2">Back</span>
                   </div>
                 </button>
+            }
+
+            
+              <button 
+                className="border w-30 mt-8 h-8 px-4 rounded-lg bg-gray-600 text-white m-2 hover:text-primary-500 hover:shadow-lg hover:shadow-amber-100 "
+              >
+                    <div className="flex justify-center items-center">
+                      <span className="ml-2">
+                        { isLastStep ? "Finish" : "Next"}
+                      </span>
+                      <ChevronRightIcon className="h-6 w-6 " />
+                    </div>
+              </button>
+            
 
               </div>
             </section>
           </form>
-          <DevTool control={control} />
+          {/* <DevTool control={control} /> */}
 
 
         </div>
