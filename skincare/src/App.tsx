@@ -6,7 +6,7 @@ import "@/App.css"
 
 
 
-import V2Quiz1 from "@/pages/quiz2/step1"
+import Start from "@/pages/quiz2/step1"
 import Step2 from "@/pages/quiz2/Step2"
 import Step3  from "@/pages/quiz2/Step3"
 import Step4  from "@/pages/quiz2/Step4"
@@ -14,6 +14,8 @@ import Step5  from "@/pages/quiz2/Step5"
 import Step6  from "@/pages/quiz2/Step6"
 import Step7  from "@/pages/quiz2/Step7"
 import Step8  from "@/pages/quiz2/Step8"
+import Results from "./pages/quiz2/Result";
+
 
 
 
@@ -35,7 +37,7 @@ function App() {
           <Route path="/" element={<Home />} />
           
           {/* QUIZ QUESTIONS */}
-            <Route path="/quiz" element={<V2Quiz1  />} />
+            <Route path="/quiz" element={<Start  />} />
             <Route path="/step-2" element={<Step2 />} />
             <Route path="/step-3" element={<Step3 />} />
             <Route path="/step-4" element={<Step4 />} />
@@ -43,6 +45,9 @@ function App() {
             <Route path="/step-6" element={<Step6 />} />
             <Route path="/step-7" element={<Step7 />} />
             <Route path="/step-8" element={<Step8 />} />
+            <Route path="/results" element={<Results />} />
+           
+
           <Route path="/shop" element={<Shop />} />
           <Route path="/cart" element={<Cart />} />
 

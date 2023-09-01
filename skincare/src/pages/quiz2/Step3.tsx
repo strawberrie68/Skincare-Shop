@@ -79,7 +79,7 @@ const Step3: React.FC = () => {
                                         className="hidden"
                                         type="radio"
                                         {...register("mainGoal")}
-                                        value="combo"
+                                        value="rosacea"
 
                                     />
                                     {/* <img className="w-10 bg-primary-10 mb-4 m-auto border-2 p-2 rounded-3xl" src={Combo} /> */}
@@ -99,6 +99,34 @@ const Step3: React.FC = () => {
                                     {/* <img className="w-10 bg-primary-10 mb-4 m-auto border-2 p-2 rounded-3xl" src={Oily} /> */}
                                     <span className="text-xl text-gray-400 tracking-widest pt-2">DARK SPOTS</span>
                                     <span className="w-40 text-xs m-auto mt-2 text-gray-400">Help get rid of dark spots and even out skin</span>
+                                </label>
+                            </div>
+                            <div className="radio-btn p-2 ">
+                                <label className=" h-[200px] flex flex-col text-center py-8 px-2 border-2  border-gray-05 cursor-pointer bg-white opacity-75 rounded-xl hover:shadow-slate-300 hover:shadow-lg ">
+                                    <input
+                                        className="hidden"
+                                        type="radio"
+                                        {...register("mainGoal")}
+                                        value="dry"
+
+                                    />
+                                    {/* <img className="w-10 bg-primary-10 mb-4 m-auto border-2 p-2 rounded-3xl" src={Oily} /> */}
+                                    <span className="text-xl text-gray-400 tracking-widest pt-2">DRY</span>
+                                    <span className="w-40 text-xs m-auto mt-2 text-gray-400">Dry Skin that always feel tight and dry</span>
+                                </label>
+                            </div>
+                            <div className="radio-btn p-2 ">
+                                <label className=" h-[200px] flex flex-col text-center py-8 px-2 border-2  border-gray-05 cursor-pointer bg-white opacity-75 rounded-xl hover:shadow-slate-300 hover:shadow-lg ">
+                                    <input
+                                        className="hidden"
+                                        type="radio"
+                                        {...register("mainGoal")}
+                                        value="pores"
+
+                                    />
+                                    {/* <img className="w-10 bg-primary-10 mb-4 m-auto border-2 p-2 rounded-3xl" src={Oily} /> */}
+                                    <span className="text-xl text-gray-400 tracking-widest pt-2">PORES</span>
+                                    <span className="w-40 text-xs m-auto mt-2 text-gray-400">Large visible looking pores, like whiteheads, blackheads</span>
                                 </label>
                             </div>
 

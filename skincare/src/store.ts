@@ -2,7 +2,7 @@ import { registerInDevtools, Store } from "pullstate";
 
 
 export interface FormStep1 {
-    skintypeOfTret: string;
+    skintype: string;
   }
   
   export interface FormStep2 {
@@ -47,7 +47,7 @@ export interface FormStep1 {
   } & FormStep1 & FormStep2 & FormStep3 & FormStep4 & FormStep5 & FormStep6 & FormStep7 & FormStep8; 
 
 export const WizardStore = new Store<FormValues>({
-    skintypeOfTret: "",
+    skintype: "",
     isSensitive: "false",
     mainGoal: "",
     concerns: [],

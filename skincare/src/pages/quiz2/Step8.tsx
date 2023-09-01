@@ -4,6 +4,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { WizardStore, FormStep8 } from "@/store";
 import { DevTool } from "@hookform/devtools"
 import NavBar from "@/componets/NavBar"
+import { AcneLevel } from "@/shared/types";
 
 
 import Dry from "@/assets/quizIcons/Catus.svg"
@@ -57,7 +58,7 @@ const Step6: React.FC = () => {
                                         type="radio"
                                         {...register("acneLevel")}
 
-                                        value="none"
+                                        value="zero"
 
                                     />
                                     <img className="w-10 bg-primary-10 mb-4 m-auto border-2 p-2 rounded-3xl" src={Normal} />
@@ -74,7 +75,7 @@ const Step6: React.FC = () => {
                                         type="radio"
                                         {...register("acneLevel")}
 
-                                        value="Little"
+                                        value="low"
 
                                     />
                                     <img className="w-10 bg-primary-10 mb-4 m-auto border-2 p-2 rounded-3xl" src={Normal} />
@@ -91,7 +92,7 @@ const Step6: React.FC = () => {
                                         type="radio"
                                         {...register("acneLevel")}
 
-                                        value="Some"
+                                        value="some"
 
                                     />
                                     <img className="w-10 bg-primary-10 mb-4 m-auto border-2 p-2 rounded-3xl" src={Normal} />
@@ -108,7 +109,7 @@ const Step6: React.FC = () => {
                                         type="radio"
                                         {...register("acneLevel")}
 
-                                        value="Lots"
+                                        value="high"
 
                                     />
                                     <img className="w-10 bg-primary-10 mb-4 m-auto border-2 p-2 rounded-3xl" src={Normal} />
