@@ -4,13 +4,12 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { WizardStore, FormStep8 } from "@/store";
 import { DevTool } from "@hookform/devtools"
 import NavBar from "@/componets/NavBar"
-import { AcneLevel } from "@/shared/types";
 
 
-import Dry from "@/assets/quizIcons/Catus.svg"
+// import Dry from "@/assets/quizIcons/Catus.svg"
 import Normal from "@/assets/quizIcons/Cloud.svg"
-import Combo from "@/assets/quizIcons/CloudSun.svg"
-import Oily from "@/assets/quizIcons/Umbrella.svg"
+// import Combo from "@/assets/quizIcons/CloudSun.svg"
+// import Oily from "@/assets/quizIcons/Umbrella.svg"
 
 import { ChevronRightIcon } from "@heroicons/react/20/solid";
 import { ChevronLeftIcon } from "@heroicons/react/20/solid";
@@ -19,13 +18,13 @@ import { ChevronLeftIcon } from "@heroicons/react/20/solid";
 
 
 
-const Step6: React.FC = () => {
+const Step8: React.FC = () => {
     const {
         register,
         handleSubmit,
-        getValues,
+        // getValues,
         control,
-        formState: { errors },
+        // formState: { errors },
     } = useForm({ defaultValues: WizardStore.useState((s) => s) });
 
     const navigate = useNavigate();
@@ -170,4 +169,4 @@ const Step6: React.FC = () => {
     );
 };
 
-export default Step6;
+export default Step8;

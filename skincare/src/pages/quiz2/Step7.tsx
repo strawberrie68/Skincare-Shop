@@ -17,13 +17,13 @@ import { ChevronLeftIcon } from "@heroicons/react/20/solid";
 
 
 
-const Step6: React.FC = () => {
+const Step7: React.FC = () => {
     const {
         register,
         handleSubmit,
-        getValues,
+        // getValues,
         control,
-        formState: { errors },
+        // formState: { errors },
     } = useForm({ defaultValues: WizardStore.useState((s) => s) });
 
     const navigate = useNavigate();
@@ -220,4 +220,4 @@ const Step6: React.FC = () => {
     );
 };
 
-export default Step6;
+export default Step7;

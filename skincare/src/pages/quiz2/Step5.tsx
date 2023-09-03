@@ -8,8 +8,8 @@ import NavBar from "@/componets/NavBar"
 
 import Dry from "@/assets/quizIcons/Catus.svg"
 import Normal from "@/assets/quizIcons/Cloud.svg"
-import Combo from "@/assets/quizIcons/CloudSun.svg"
-import Oily from "@/assets/quizIcons/Umbrella.svg"
+// import Combo from "@/assets/quizIcons/CloudSun.svg"
+// import Oily from "@/assets/quizIcons/Umbrella.svg"
 
 import { ChevronRightIcon } from "@heroicons/react/20/solid";
 import { ChevronLeftIcon } from "@heroicons/react/20/solid";
@@ -22,9 +22,9 @@ const Step5: React.FC = () => {
     const {
         register,
         handleSubmit,
-        getValues,
+        // getValues,
         control,
-        formState: { errors },
+        // formState: { errors },
     } = useForm({ defaultValues: WizardStore.useState((s) => s) });
 
     const navigate = useNavigate();

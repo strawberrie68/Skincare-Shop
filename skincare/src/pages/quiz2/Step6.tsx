@@ -6,11 +6,6 @@ import { DevTool } from "@hookform/devtools"
 import NavBar from "@/componets/NavBar"
 
 
-import Dry from "@/assets/quizIcons/Catus.svg"
-import Normal from "@/assets/quizIcons/Cloud.svg"
-import Combo from "@/assets/quizIcons/CloudSun.svg"
-import Oily from "@/assets/quizIcons/Umbrella.svg"
-
 import { ChevronRightIcon } from "@heroicons/react/20/solid";
 import { ChevronLeftIcon } from "@heroicons/react/20/solid";
 
@@ -22,9 +17,9 @@ const Step6: React.FC = () => {
     const {
         register,
         handleSubmit,
-        getValues,
+        // getValues,
         control,
-        formState: { errors },
+        // formState: { errors },
     } = useForm({ defaultValues: WizardStore.useState((s) => s) });
 
     const navigate = useNavigate();
@@ -58,7 +53,7 @@ const Step6: React.FC = () => {
                                         value="true"
 
                                     />
-                                    <img className="w-10  bg-primary-10 mb-4 m-auto border-2 p-2 rounded-3xl" src={Dry} />
+                                    {/* <img className="w-10  bg-primary-10 mb-4 m-auto border-2 p-2 rounded-3xl" src={Dry} /> */}
                                     <span className="text-xl text-gray-400 tracking-widest pt-2">True</span>
                                     <span className="w-40 text-xs m-auto mt-2 text-gray-400 mb-4">If you are:</span>
                                     <ul>
@@ -78,7 +73,7 @@ const Step6: React.FC = () => {
                                         value="false"
 
                                     />
-                                    <img className="w-10 bg-primary-10 mb-4 m-auto border-2 p-2 rounded-3xl" src={Normal} />
+                                    {/* <img className="w-10 bg-primary-10 mb-4 m-auto border-2 p-2 rounded-3xl" src={Normal} /> */}
                                     <span className="text-xl text-gray-400 tracking-widest pt-2">False</span>
                                    
                                  

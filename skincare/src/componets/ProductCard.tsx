@@ -8,15 +8,16 @@ type Props = {
     price: number,
     category: string
     product: ProductType
+    key: number
 }
 
-const ProductCard = ({ img, name, price, category, product }: Props) => {
+const ProductCard = ({ img, name, price, category, product , key}: Props) => {
     const dispatch = useAppDispatch();
 
  
     
     return (
-        <div className=" w-[220px] h-[410px] flex flex-col justify-center  max-w-screen-md ">
+        <div key={key} className=" w-[220px] h-[410px] flex flex-col justify-center  max-w-screen-md ">
             <img className=" w-fill object-fit h-[280px] sm:w-auto sm:object-scale-down xs:object-contain" src={img} />
             <div className="flex h-[100px] mt-2 justify-between">
                 <div className="basis-4/5 ">

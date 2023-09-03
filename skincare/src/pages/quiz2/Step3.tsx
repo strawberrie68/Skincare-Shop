@@ -17,9 +17,9 @@ const Step3: React.FC = () => {
     const {
         register,
         handleSubmit,
-        getValues,
+        // getValues,
         control,
-        formState: { errors },
+        // formState: { errors },
     } = useForm({ defaultValues: WizardStore.useState((s) => s) });
 
     const navigate = useNavigate();
