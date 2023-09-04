@@ -3,6 +3,7 @@ module.exports = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      display: ["group-hover"],
       colors: {
         "gray-05":"#f2f2f2",
         "gray-10":"#D9D9D9",

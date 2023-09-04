@@ -5,7 +5,7 @@ import { ProductType } from "@/shared/types";
 const products: Array<ProductType> = [
     {
         img: "https://versedskin.com/cdn/shop/products/Versed-Skincare-Weekend-Glow-Daily-Brightening-Solution-03_1800x.jpg?v=1625114116",
-        name: "CeraVe SALICYLIC ACID Cleanser",
+        name: "CeraVe Salicylic Acid Cleanser",
         concerns: ["pores", "acne", "hyperpigmentation"],
         skintype: ["acne", "normal", "dry", "oily", "barrier-broken", "all"],
         price: 20,

@@ -15,13 +15,14 @@ const Shop = () => {
             <div className="bg-white h-full gap-16 py-10 md:pb-0  w-full mt-12 mb-16">
                 <div className="mx-auto w-5/6 max-w-screen-md mt-12" >
                     <img
+                        className=""
                         src="https://versedskin.com/cdn/shop/files/230629_SweetReliefLaunch_CBH_Desktop_1650x450_b96567c0-8950-44fb-a16e-f698f9a229c3.jpg?v=1691446250"
                     />
                     <h1 className="mt-16 text-3xl bold ">
                         Shop
                     </h1>
                     <p className="mb-6 mt-3 text-gray-100">Explore our products</p>
-                    <div className="m-auto  grid  grid-cols-2 sm:grid-cols-3">
+                    <div className="mx-auto  xxs:w-full xxs:flex xxs:flex-col items-center xs:grid  xs:grid-cols-2 sm:grid-cols-3 gap-4">
                         {products.map((product: ProductType, index) => (
                             <ProductCard
                                 key={index}
