@@ -12,7 +12,7 @@ import Combo from "@/assets/quizIcons/CloudSun.svg"
 import Oily from "@/assets/quizIcons/Umbrella.svg"
 
 import { ChevronRightIcon } from "@heroicons/react/20/solid";
-import { ChevronLeftIcon } from "@heroicons/react/20/solid";
+
 
 
 
@@ -37,11 +37,13 @@ const Step1: React.FC = () => {
         navigate("/step-2")
     };
 
+
+
     return (
 
         <div className="bg-white h-full">
             <NavBar />
-            <div className=" mt-40 w-4/5 m-auto">
+            <div className=" mt-40 h-full w-4/5 m-auto">
                 <p className="text-3xl">Find Your Perfect Routine</p>
 
                 <form onSubmit={handleSubmit(onSubmit)}>
@@ -109,29 +111,20 @@ const Step1: React.FC = () => {
 
                         </div>
                         <div className="text-center mt-4">
-                        {errors.skintype && <span>Choose your skintype</span>}
+                            {errors.skintype && <span>Choose your skintype</span>}
 
                         </div>
-                        
+
                     </div>
 
                     {/* TOGGLE NEXT AND BACK BUTTONS */}
 
                     <div className="flex justify-end">
-                        <button
-                            className="border w-30 mt-8 h-8 px-4 rounded-lg m-2 text-gray-600 hover:text-primary-500 hover:shadow-lg hover:shadow-amber-100 "
-                            type="button"
-                        >
-                            <div className="flex justify-center items-center">
-                                <ChevronLeftIcon className="h-6 w-6 " />
-                                <span className="ml-2">Back</span>
-                            </div>
-                        </button>
-
 
 
                         <button
                             className="border w-30 mt-8 h-8 px-4 rounded-lg bg-gray-600 text-white m-2 hover:text-primary-500 hover:shadow-lg hover:shadow-amber-100 "
+
                         >
                             <div className="flex justify-center items-center">
                                 <span className="ml-2">Next</span>

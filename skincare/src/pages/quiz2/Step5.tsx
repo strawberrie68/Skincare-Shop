@@ -30,12 +30,26 @@ const Step5: React.FC = () => {
     const navigate = useNavigate();
 
     const onSubmit: SubmitHandler<FormStep5> = (data) => {
-        WizardStore.update((s) => {
-            s.progress = 34;
-            s.tret.want = data.tret.want
-        });
-        navigate("/step-6")
+        if (data.tret.want == "noRetinol") {
+            WizardStore.update((s) => {
+                s.progress = 34;
+                s.tret.want = data.tret.want
+            });
+            navigate("/step-8")
+
+        } else {
+            WizardStore.update((s) => {
+                s.progress = 34;
+                s.tret.want = data.tret.want
+            });
+            navigate("/step-6")
+
+        }
     };
+
+    const goBack = () => {
+        navigate(-1)
+    }
 
     return (
 
@@ -88,15 +102,15 @@ const Step5: React.FC = () => {
                                     </ul>
                                 </label>
                             </div>
-                        
-                           
+
+
 
                         </div>
                         <div className="text-center mt-4">
-                       
+
 
                         </div>
-                        
+
                     </div>
 
                     {/* TOGGLE NEXT AND BACK BUTTONS */}
@@ -105,6 +119,7 @@ const Step5: React.FC = () => {
                         <button
                             className="border w-30 mt-8 h-8 px-4 rounded-lg m-2 text-gray-600 hover:text-primary-500 hover:shadow-lg hover:shadow-amber-100 "
                             type="button"
+                            onClick={goBack}
                         >
                             <div className="flex justify-center items-center">
                                 <ChevronLeftIcon className="h-6 w-6 " />
@@ -117,7 +132,10 @@ const Step5: React.FC = () => {
                         <button
                             className="border w-30 mt-8 h-8 px-4 rounded-lg bg-gray-600 text-white m-2 hover:text-primary-500 hover:shadow-lg hover:shadow-amber-100 "
                         >
-                            <div className="flex justify-center items-center">
+                            <div
+                                className="flex justify-center items-center"
+
+                            >
                                 <span className="ml-2">Next</span>
                                 <ChevronRightIcon className="h-6 w-6 " />
                             </div>

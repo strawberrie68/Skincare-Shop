@@ -2,6 +2,9 @@ import { useAppDispatch } from "@/hooks/reduxHook";
 import { addToCart } from "@/redux/cartSlice";
 import { ProductType } from "@/shared/types";
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 type Props = {
     img: string,
     name: string,
@@ -13,6 +16,41 @@ type Props = {
 
 const ProductCard = ({ img, name, price, category, product, key }: Props) => {
     const dispatch = useAppDispatch();
+
+    const onSubmit = async (product: ProductType) => {
+        try {
+            dispatch(addToCart(product))
+
+            toast(' 🔥 Item was added to cart ', {
+                position: "top-right",
+                autoClose: 1000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+
+
+        } catch (err) {
+            console.log(err)
+
+            toast.error('Item was not added', {
+                position: "top-right",
+                autoClose: 1000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+
+        }
+
+
+    }
 
 
 
@@ -31,11 +69,23 @@ const ProductCard = ({ img, name, price, category, product, key }: Props) => {
             </div>
 
             <button
-                className="border-2 bg-white w-[150px] rounded-lg text-gray-500 mt-4 px-4 py-1 hover:bg-black hover:text-primary-500"
-                onClick={() => dispatch(addToCart(product))}
+                className="border-2 bg-white w-[150px] rounded-lg text-gray-500 mt-2 px-4 py-1 hover:bg-black hover:text-primary-500"
+                onClick={() => onSubmit(product)}
             >
                 Add to cart
             </button>
+            <ToastContainer
+                position="top-right"
+                autoClose={1000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="colored"
+            />
 
 
         </div>

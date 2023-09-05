@@ -19,7 +19,7 @@ export interface FormStep1 {
   
   export interface FormStep5 {
     tret: {
-      want: boolean,
+      want: string,
     },
   }
 
@@ -52,7 +52,7 @@ export const WizardStore = new Store<FormValues>({
     mainGoal: "",
     concerns: [],
     tret: {
-      want: false,
+      want: "noRetinol",
       tried: false,
       typeOfTret: "0.0025%",
       irritationLevel: "low",

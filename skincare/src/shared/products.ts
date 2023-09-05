@@ -7,7 +7,7 @@ const products: Array<ProductType> = [
         img: "https://versedskin.com/cdn/shop/products/Versed-Skincare-Weekend-Glow-Daily-Brightening-Solution-03_1800x.jpg?v=1625114116",
         name: "CeraVe Salicylic Acid Cleanser",
         concerns: ["pores", "acne", "hyperpigmentation"],
-        skintype: ["acne", "normal", "dry", "oily", "barrier-broken", "all"],
+        skintype: ["acne", "normal", "dry", "oily", "broken-barrier", "all"],
         price: 20,
         category: "Cleanser"
 
@@ -15,8 +15,8 @@ const products: Array<ProductType> = [
     {
         img: "https://versedskin.com/cdn/shop/products/HYDRATINGMILKTONER_LABEL_241_v2_1800x.jpg?v=1656434566",
         name: "Isntree Yam Root Cleanser",
-        concerns: ["dry", "barrier-broken", "normal", "acne", "sensitive"],
-        skintype: ["sensitive", "dry", "normal", "acne",  "barrier-broken"],
+        concerns: ["dry", "broken-barrier", "acne", "sensitivity"],
+        skintype: ["sensitive", "dry", "normal", "acne",  "broken-barrier"],
         price: 12,
         category: "Cleanser"
 
@@ -25,7 +25,7 @@ const products: Array<ProductType> = [
         img: "https://versedskin.com/cdn/shop/products/MoistureMaker_01_1800x.jpg?v=1659404200",
         name: "I'm from Mugwort",
         concerns: ["broken-barrier", "acne"],
-        skintype: ["sensitive", "acne", "all",  "barrier-broken"],
+        skintype: ["sensitive", "acne", "all",  "broken-barrier"],
         price: 30,
         category: "Toner"
 
@@ -42,8 +42,8 @@ const products: Array<ProductType> = [
     {
         img: "https://versedskin.com/cdn/shop/products/Dermaplaner_CapOff_PDP_54693c7f-b18a-450a-acef-c45378172b9b_1800x.jpg?v=1622745393",
         name: "ANUA - Heartleaf 77% Soothing Toner",
-        concerns: ["barrier-broken", "sensitive"],
-        skintype: ["sensitive", "acne", "all",  "barrier-broken"],
+        concerns: ["broken-barrier", "sensitivity"],
+        skintype: ["sensitive", "acne", "all",  "broken-barrier"],
         price: 30,
         category: "Toner"
 
@@ -51,8 +51,8 @@ const products: Array<ProductType> = [
     {
         img: "https://versedskin.com/cdn/shop/products/Versed-Skincare-Silk-Slip-Conditioning-Lip-Oil-01_1800x.jpg?v=1625114228",
         name: "Roundlab Toner",
-        concerns: ["uneven", "acne", "normal", "barrier-broken"],
-        skintype: ["sensitive", "acne", "all", "normal",  "barrier-broken"],
+        concerns: ["hyperpigmentation", "acne", "normal", "broken-barrier"],
+        skintype: ["sensitive", "acne", "all", "normal",  "broken-barrier"],
         price: 30,
         category: "Toner"
 
@@ -77,8 +77,8 @@ const products: Array<ProductType> = [
     },
     {
         img: "https://versedskin.com/cdn/shop/products/SHOT9_SKINSOAK_FRONT_V1_1800x.jpg?v=1681155870",
-        name: "Dynasty Cream",
-        concerns: ["dry", "wrinkles", "hyperpigmentation"],
+        name: "Mugwort Cream",
+        concerns: ["dry", "wrinkles", "hyperpigmentation", "broken-barrier", "sensitivity"],
         skintype: ["dry", "all"],
         price: 30,
         category: "Moisturizer"

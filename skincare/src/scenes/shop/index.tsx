@@ -4,6 +4,8 @@ import { ProductType } from "@/shared/types"
 import { motion } from "framer-motion";
 
 
+
+
 const container = {
   hidden: {},
   visible: {

@@ -8,9 +8,6 @@ import { Link } from "react-router-dom";
 
 
 
-//Icons for skinconcerns
-
-
 
 interface GroupedProduct {
     [category: string]: ProductType[];
@@ -26,22 +23,22 @@ const Result: React.FC = () => {
     const [bestProducts, setBestProduct] = useState<(ProductType)[]>(Array<ProductType>)
 
 
-    const [maxProductIndex, setMaxProductIndex] = useState(0)
+
 
     useEffect(() => {
 
-        if (state.isSensitive == "true" || state.acneLevel == "high" || state.acneLevel == "some") {
-            setTheirSkintype("reparing")
+        if (FakeQuiz.isSensitive == "true" || FakeQuiz.acneLevel == "high" || FakeQuiz.acneLevel == "some" || FakeQuiz.mainGoal == "rosacea") {
+            setTheirSkintype("repairing")
         } else {
-            setTheirSkintype(state.skintype)
+            setTheirSkintype(FakeQuiz.skintype)
         }
 
     })
 
     useEffect(() => {
         switch (theirSkintype) {
-            case "reparing":
-                setProductForSkintype(products.filter((item) => item?.skintype?.includes("sensitive") || item?.skintype?.includes("barrier-broken")))
+            case "repairing":
+                setProductForSkintype(products.filter((item) => item?.skintype?.includes("sensitive") || item?.skintype?.includes("broken-barrier") || item?.skintype?.includes("all")))
                 break;
             case "dry":
                 setProductForSkintype(products.filter((item) => item?.skintype?.includes("dry") || item?.skintype?.includes("all")))
@@ -61,9 +58,17 @@ const Result: React.FC = () => {
 
     useEffect(() => {
 
-        setProductsForSkinGoal(productForSkintype.filter((item) => item?.concerns?.includes(state.mainGoal)))
+        if (theirSkintype == "repairing") {
+            setProductsForSkinGoal(productForSkintype.filter((item) => item?.concerns?.includes("sensitivity") || item?.skintype?.includes("broken-barrier") || item?.skintype?.includes("all")))
+
+        } else {
+            setProductsForSkinGoal(productForSkintype.filter((item) => item?.concerns?.includes(FakeQuiz.mainGoal) || item?.skintype?.includes("all")))
+
+        }
 
     }, [productForSkintype])
+
+    console.log(productsForSkinGoal)
 
     useEffect(() => {
 
@@ -76,41 +81,47 @@ const Result: React.FC = () => {
         }, {});
 
         setGroupedProducts(grouped)
+        console.log(groupedProducts)
+
 
     }, [productsForSkinGoal])
 
 
     useEffect(() => {
 
-        //Will recommend the best product that matches customer skingoal and concerns
-
-        if (groupedProducts) {
+        if (theirSkintype == "repairing" && groupedProducts) {
             const mapped = Object.entries(groupedProducts).map(([_, v]) => {
                 if (v.length > 1) {
+
                     const bestProductIndex = v.map((product) =>
                         product.concerns?.map((productConcerns) =>
-                            (state.concerns.includes(productConcerns) ? Number(1) : Number(0))))
+                            (productConcerns.includes("sensitivity" || "broken-barrier") ? Number(1) : Number(0))))
                         .map((arr) => arr?.reduce((acc, c) => acc + c, 0))
+                    console.log(bestProductIndex)
+
+                    return v[recommendBestProduct(bestProductIndex)]
 
 
-                    function recommendBestProduct(arr: any) {
-                        if (bestProductIndex.length == 0) {
-                            return -1
-                        }
-                        var max = arr[0];
-                        var maxIndex = 0;
+                } else {
+                    return v
+                }
+            })
+            console.log(mapped)
+            setBestProduct(mapped.flat(1))
+        }
 
-                        for (var i = 1; i < arr.length; i++) {
-                            if (arr[i] > max) {
-                                maxIndex = i;
-                                max = arr[i];
-                            }
-                        }
+        else if (groupedProducts) {
+            const mapped = Object.entries(groupedProducts).map(([_, v]) => {
+                if (v.length > 1) {
 
-                        setMaxProductIndex(maxIndex)
-                    }
-                    recommendBestProduct(bestProductIndex)
-                    return v[maxProductIndex]
+                    const bestProductIndex = v.map((product) =>
+                        product.concerns?.map((productConcerns) =>
+                            (FakeQuiz.concerns.includes(productConcerns) ? Number(1) : Number(0))))
+                        .map((arr) => arr?.reduce((acc, c) => acc + c, 0))
+                    console.log(bestProductIndex)
+
+                    return v[recommendBestProduct(bestProductIndex)]
+
 
                 } else {
                     return v
@@ -124,14 +135,22 @@ const Result: React.FC = () => {
 
     }, [groupedProducts])
 
+    useEffect(() => {
+
+    })
+
 
     console.log(productsForSkinGoal)
+    console.log(groupedProducts)
 
-    console.log(state)
+    // console.log(FakeQuiz)
 
 
     console.log(theirSkintype)
     console.log(bestProducts)
+
+
+    //replace FakeQuiz to state to change backt to real data
 
 
     const FakeQuiz = {
@@ -150,6 +169,26 @@ const Result: React.FC = () => {
         progress: 16,
     }
 
+    function recommendBestProduct(arr: any) {
+
+        if (arr.length == 0) {
+            return -1
+        }
+        var max = arr[0];
+        var maxIndex = 0;
+
+        for (var i = 1; i < arr.length; i++) {
+            if (arr[i] && arr[i] > max) {
+                maxIndex = i;
+                max = arr[i];
+            }
+        }
+
+        return maxIndex;
+
+    }
+
+
 
     return (
 
@@ -158,7 +197,7 @@ const Result: React.FC = () => {
             <div className=" mt-40 w-4/5 m-auto">
                 <p className="text-3xl">Find Your Perfect Routine</p>
 
-                {state.skintype == '' &&
+                {FakeQuiz.skintype == '' &&
                     <div className="my-12 border-2 p-5 flex flex-col justify-center text-center py-16 items-center">
                         <p className="text-gray-400">Oops we did not get your quiz results</p>
                         <Link to={"/quiz"}>
@@ -168,27 +207,27 @@ const Result: React.FC = () => {
                     </div>
                 }
                 {
-                    state.skintype != '' &&
+                    FakeQuiz.skintype != '' &&
                     <div>
 
                         <div className="my-12 border-2 p-5 flex flex-col justify-center text-center">
                             <p>Your skin type is: </p>
-                            {state.skintype != "repairing" &&
+                            {theirSkintype != "repairing" &&
                                 <div>
 
-                                    <p className="text-2xl">{`${state.skintype.toUpperCase()}`}</p>
+                                    <p className="text-2xl">{`${FakeQuiz.skintype.toUpperCase()}`}</p>
                                     <div className="mt-4 max-w-sm m-auto">
                                         <p className="text-sm text-gray-400">To help with your
-                                            <span className="text-gray-600"> {state.mainGoal} </span> and other skin concerns  we recommend these products </p>
+                                            <span className="text-gray-600"> {FakeQuiz.mainGoal} </span> and other skin concerns  we recommend these products </p>
                                     </div>
                                 </div>
                             }
-                            {state.skintype == "repairing" &&
+                            {theirSkintype == "repairing" &&
                                 <div>
 
-                                    <p className="text-2xl">Needs Healing</p>
+                                    <p className="text-2xl">Compromised</p>
                                     <div className="mt-4 max-w-sm m-auto">
-                                        <p className="text-sm text-gray-400">To help with your
+                                        <p className="text-sm text-gray-400">To heal your
                                             <span className="text-gray-600"> sensitive and compromised skin </span>  we recommend these products </p>
                                     </div>
                                 </div>

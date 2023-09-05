@@ -38,6 +38,10 @@ const Step7: React.FC = () => {
         navigate("/step-8")
     };
 
+    const goBack = () => {
+        navigate(-1)
+    }
+
     return (
 
         <div className="bg-white h-full">
@@ -77,8 +81,8 @@ const Step7: React.FC = () => {
                                     <img className="w-10 bg-primary-10 mb-4 m-auto border-2 p-2 rounded-3xl" src={Normal} />
                                     <span className="text-xl text-gray-400 tracking-widest pt-2">LOW</span>
                                     <p>Some peeling and little to no irrtation</p>
-                                   
-                                 
+
+
                                 </label>
                             </div>
                             <div className="p-2 ">
@@ -94,8 +98,8 @@ const Step7: React.FC = () => {
                                     <img className="w-10 bg-primary-10 mb-4 m-auto border-2 p-2 rounded-3xl" src={Normal} />
                                     <span className="text-xl text-gray-400 tracking-widest pt-2">MED</span>
                                     <p>Some peeling and a little peeling</p>
-                                   
-                                 
+
+
                                 </label>
                             </div>
                             <div className="p-2 ">
@@ -111,16 +115,16 @@ const Step7: React.FC = () => {
                                     <img className="w-10 bg-primary-10 mb-4 m-auto border-2 p-2 rounded-3xl" src={Normal} />
                                     <span className="text-xl text-gray-400 tracking-widest pt-2">HIGH</span>
                                     <p>Experinced painful stinging and irritation</p>
-                                   
-                                 
+
+
                                 </label>
                             </div>
-                        
-                           
+
+
 
                         </div>
                         <div className="text-center mt-4">
-                       
+
 
                         </div>
                         <div>
@@ -136,9 +140,9 @@ const Step7: React.FC = () => {
                                     />
                                     <img className="w-10 bg-primary-10 mb-4 m-auto border-2 p-2 rounded-3xl" src={Normal} />
                                     <span className="text-xl text-gray-400 tracking-widest pt-2">0.025%</span>
-      
-                                   
-                                 
+
+
+
                                 </label>
                             </div>
                             <div className="p-2 ">
@@ -153,9 +157,9 @@ const Step7: React.FC = () => {
                                     />
                                     <img className="w-10 bg-primary-10 mb-4 m-auto border-2 p-2 rounded-3xl" src={Normal} />
                                     <span className="text-xl text-gray-400 tracking-widest pt-2">0.05%</span>
-                                    
-                                   
-                                 
+
+
+
                                 </label>
                             </div>
                             <div className="p-2 ">
@@ -170,14 +174,14 @@ const Step7: React.FC = () => {
                                     />
                                     <img className="w-10 bg-primary-10 mb-4 m-auto border-2 p-2 rounded-3xl" src={Normal} />
                                     <span className="text-xl text-gray-400 tracking-widest pt-2">0.1%</span>
-                                    
-                                   
-                                 
+
+
+
                                 </label>
                             </div>
 
                         </div>
-                        
+
                     </div>
 
                     {/* TOGGLE NEXT AND BACK BUTTONS */}
@@ -187,7 +191,10 @@ const Step7: React.FC = () => {
                             className="border w-30 mt-8 h-8 px-4 rounded-lg m-2 text-gray-600 hover:text-primary-500 hover:shadow-lg hover:shadow-amber-100 "
                             type="button"
                         >
-                            <div className="flex justify-center items-center">
+                            <div
+                                className="flex justify-center items-center"
+                                onClick={goBack}
+                            >
                                 <ChevronLeftIcon className="h-6 w-6 " />
                                 <span className="ml-2">Back</span>
                             </div>
