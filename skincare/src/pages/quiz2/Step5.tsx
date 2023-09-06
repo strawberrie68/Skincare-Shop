@@ -24,7 +24,7 @@ const Step5: React.FC = () => {
         handleSubmit,
         // getValues,
         control,
-        // formState: { errors },
+        formState: { errors },
     } = useForm({ defaultValues: WizardStore.useState((s) => s) });
 
     const navigate = useNavigate();
@@ -60,15 +60,15 @@ const Step5: React.FC = () => {
 
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="mt-4">
-                        <p className="text-gray-400">Would you like to add Retinol?</p>
+                        <p className="text-gray-400">Q5 Would you like to add Retinol?</p>
 
 
-                        <div className="flex mt-6 justify-center">
-                            <div className="radio-btn p-2 ">
+                        <div className="flex flex-col mt-6 justify-center xs:flex-row">
+                            <div className="radio-btn p-2 w-full">
                                 <label className=" h-[250px] flex flex-col text-center py-8 px-2 border-2  border-gray-05 cursor-pointer bg-white opacity-75 rounded-xl hover:shadow-slate-300 hover:shadow-lg ">
                                     <input
                                         className="hidden" type="radio"
-                                        {...register("tret.want")}
+                                        {...register("tret.want", { required: true })}
                                         value="retinol"
 
                                     />
@@ -82,12 +82,12 @@ const Step5: React.FC = () => {
                                     </ul>
                                 </label>
                             </div>
-                            <div className="radio-btn p-2 ">
-                                <label className=" h-[250px] flex flex-col text-center py-8 px-2 border-2  border-gray-05 cursor-pointer bg-white opacity-75 rounded-xl hover:shadow-slate-300 hover:shadow-lg ">
+                            <div className="radio-btn p-2 w-full">
+                                <label className=" h-[250px]  flex flex-col text-center py-8 px-2 border-2  border-gray-05 cursor-pointer bg-white opacity-75 rounded-xl hover:shadow-slate-300 hover:shadow-lg ">
                                     <input
                                         className="hidden"
                                         type="radio"
-                                        {...register("tret.want")}
+                                        {...register("tret.want", { required: true })}
 
                                         value="noRetinol"
 
@@ -106,9 +106,8 @@ const Step5: React.FC = () => {
 
 
                         </div>
-                        <div className="text-center mt-4">
-
-
+                        <div className="text-center mt-4 text-red-300 text-sm">
+                            {errors.tret?.want && <span>Choose your skintype</span>}
                         </div>
 
                     </div>

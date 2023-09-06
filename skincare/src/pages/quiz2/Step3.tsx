@@ -19,7 +19,7 @@ const Step3: React.FC = () => {
         handleSubmit,
         // getValues,
         control,
-        // formState: { errors },
+        formState: { errors },
     } = useForm({ defaultValues: WizardStore.useState((s) => s) });
 
     const navigate = useNavigate();
@@ -37,100 +37,103 @@ const Step3: React.FC = () => {
 
     return (
 
-        <div className="bg-white h-full">
+        <div className="bg-white h-full w-full">
             <NavBar />
             <div className=" mt-40 w-4/5 m-auto">
                 <p className="text-3xl">What is your Main Skin Goal?</p>
 
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <div className="mt-4">
-                        <p className="text-gray-400 text-xs">Pick only one skin goal</p>
+                    <div className="mt-4 grid ">
+                        <p className="text-gray-400 text-sm">Q3 Pick only one skin goal</p>
 
 
 
-                        <div className="flex mt-6 ">
+                        <div className="grid grid-cols-2 sm:grid-cols-3 mt-4">
                             <div className="radio-btn p-2 ">
-                                <label className=" h-[200px] flex flex-col text-center py-8 px-2 border-2  border-gray-05 cursor-pointer bg-white opacity-75 rounded-xl hover:shadow-slate-300 hover:shadow-lg ">
+                                <label className="items-center h-[130px] flex flex-col text-center  px-2 border-2  border-gray-05 cursor-pointer bg-white opacity-75 rounded-xl hover:shadow-slate-300 hover:shadow-lg ">
                                     <input
                                         className="hidden" type="radio"
-                                        {...register("mainGoal")}
+                                        {...register("mainGoal", { required: true })}
                                         value="acne"
 
                                     />
-                                    {/* <img className="w-10  bg-primary-10 mb-4 m-auto border-2 p-2 rounded-3xl" src={Dry} /> */}
                                     <span className="text-xl text-gray-400 tracking-widest pt-2">ACNE</span>
-                                    <span className="w-40 text-xs m-auto mt-2 text-gray-400">Clear and Get rid of acne</span>
+                                    <span className=" text-xs m-auto mt-2 text-gray-400 break-words">Clear and Get rid of acne</span>
                                 </label>
                             </div>
                             <div className="radio-btn p-2 ">
-                                <label className=" h-[200px] flex flex-col text-center py-8 px-2 border-2  border-gray-05 cursor-pointer bg-white opacity-75 rounded-xl hover:shadow-slate-300 hover:shadow-lg ">
+                                <label className=" h-[130px] flex flex-col text-center py-2 px-2 border-2  border-gray-05 cursor-pointer bg-white opacity-75 rounded-xl hover:shadow-slate-300 hover:shadow-lg ">
                                     <input
                                         className="hidden"
                                         type="radio"
-                                        {...register("mainGoal")}
+                                        {...register("mainGoal", { required: true })}
                                         value="wrinkles"
 
                                     />
                                     {/* <img className="w-10 bg-primary-10 mb-4 m-auto border-2 p-2 rounded-3xl" src={Normal} /> */}
                                     <span className="text-xl text-gray-400 tracking-widest pt-2">WRINKLES</span>
-                                    <span className="w-40 text-xs m-auto mt-2 text-gray-400">Treat Fine Lines</span>
+                                    <span className="text-xs m-auto mt-2 text-gray-400">Treat Fine Lines</span>
                                 </label>
                             </div>
                             <div className="radio-btn p-2 ">
-                                <label className=" h-[200px] flex flex-col text-center py-8 px-2 border-2  border-gray-05 cursor-pointer bg-white opacity-75 rounded-xl hover:shadow-slate-300 hover:shadow-lg ">
+                                <label className=" h-[130px] flex flex-col text-center py-2 px-2 border-2  border-gray-05 cursor-pointer bg-white opacity-75 rounded-xl hover:shadow-slate-300 hover:shadow-lg ">
                                     <input
                                         className="hidden"
                                         type="radio"
-                                        {...register("mainGoal")}
+                                        {...register("mainGoal", { required: true })}
                                         value="sensitive"
 
                                     />
                                     {/* <img className="w-10 bg-primary-10 mb-4 m-auto border-2 p-2 rounded-3xl" src={Combo} /> */}
                                     <span className="text-xl text-gray-400 tracking-widest pt-2">ROSACEA</span>
-                                    <span className="w-40 text-xs m-auto mt-2 text-gray-400">Help reduce reddnes in the skin</span>
+                                    <span className=" text-xs m-auto mt-2 text-gray-400">Help reduce reddnes in the skin</span>
                                 </label>
                             </div>
                             <div className="radio-btn p-2 ">
-                                <label className=" h-[200px] flex flex-col text-center py-8 px-2 border-2  border-gray-05 cursor-pointer bg-white opacity-75 rounded-xl hover:shadow-slate-300 hover:shadow-lg ">
+                                <label className=" h-[130px] flex flex-col text-center py-2 px-2 border-2  border-gray-05 cursor-pointer bg-white opacity-75 rounded-xl hover:shadow-slate-300 hover:shadow-lg ">
                                     <input
                                         className="hidden"
                                         type="radio"
-                                        {...register("mainGoal")}
+                                        {...register("mainGoal", { required: true })}
                                         value="hyperpigmentation"
 
                                     />
                                     {/* <img className="w-10 bg-primary-10 mb-4 m-auto border-2 p-2 rounded-3xl" src={Oily} /> */}
                                     <span className="text-xl text-gray-400 tracking-widest pt-2">DARK SPOTS</span>
-                                    <span className="w-40 text-xs m-auto mt-2 text-gray-400">Help get rid of dark spots and even out skin</span>
+                                    <span className=" text-xs m-auto mt-2 text-gray-400">Dark spots and uneven skin</span>
                                 </label>
                             </div>
                             <div className="radio-btn p-2 ">
-                                <label className=" h-[200px] flex flex-col text-center py-8 px-2 border-2  border-gray-05 cursor-pointer bg-white opacity-75 rounded-xl hover:shadow-slate-300 hover:shadow-lg ">
+                                <label className=" h-[130px] flex flex-col text-center py-2 px-2 border-2  border-gray-05 cursor-pointer bg-white opacity-75 rounded-xl hover:shadow-slate-300 hover:shadow-lg ">
                                     <input
                                         className="hidden"
                                         type="radio"
-                                        {...register("mainGoal")}
+                                        {...register("mainGoal", { required: true })}
                                         value="dry"
 
                                     />
                                     {/* <img className="w-10 bg-primary-10 mb-4 m-auto border-2 p-2 rounded-3xl" src={Oily} /> */}
                                     <span className="text-xl text-gray-400 tracking-widest pt-2">DRY</span>
-                                    <span className="w-40 text-xs m-auto mt-2 text-gray-400">Dry Skin that always feel tight and dry</span>
+                                    <span className=" text-xs m-auto mt-2 text-gray-400">Dry Skin that always feel tight and dry</span>
                                 </label>
                             </div>
                             <div className="radio-btn p-2 ">
-                                <label className=" h-[200px] flex flex-col text-center py-8 px-2 border-2  border-gray-05 cursor-pointer bg-white opacity-75 rounded-xl hover:shadow-slate-300 hover:shadow-lg ">
+                                <label className=" h-[130px] flex flex-col text-center py-2 px-2 border-2  border-gray-05 cursor-pointer bg-white opacity-75 rounded-xl hover:shadow-slate-300 hover:shadow-lg ">
                                     <input
                                         className="hidden"
                                         type="radio"
-                                        {...register("mainGoal")}
+                                        {...register("mainGoal", { required: true })}
                                         value="pores"
 
                                     />
                                     {/* <img className="w-10 bg-primary-10 mb-4 m-auto border-2 p-2 rounded-3xl" src={Oily} /> */}
                                     <span className="text-xl text-gray-400 tracking-widest pt-2">PORES</span>
-                                    <span className="w-40 text-xs m-auto mt-2 text-gray-400">Large visible looking pores, like whiteheads, blackheads</span>
+                                    <span className=" text-xs m-auto mt-2 text-gray-400">Large visible pores, whiteheads, blackheads</span>
                                 </label>
+                            </div>
+                            <div className="text-center mt-4 text-red-300 text-sm">
+                                {errors.mainGoal && <span> Please choose an option as your main skin goal</span>}
+
                             </div>
 
                         </div>

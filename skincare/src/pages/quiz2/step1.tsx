@@ -51,7 +51,7 @@ const Step1: React.FC = () => {
                         <p className="text-gray-400">Q1 What is your skintype?</p>
 
 
-                        <div className="flex mt-6 ">
+                        <div className="mt-10 grid grid-cols-2 gap-2 mx-auto sm:flex sm:justify-center ">
                             <div className="radio-btn p-2 ">
                                 <label className=" h-[200px] flex flex-col text-center py-8 px-2 border-2  border-gray-05 cursor-pointer bg-white opacity-75 rounded-xl hover:shadow-slate-300 hover:shadow-lg ">
                                     <input
@@ -62,7 +62,7 @@ const Step1: React.FC = () => {
                                     />
                                     <img className="w-10  bg-primary-10 mb-4 m-auto border-2 p-2 rounded-3xl" src={Dry} />
                                     <span className="text-xl text-gray-400 tracking-widest pt-2">DRY</span>
-                                    <span className="w-40 text-xs m-auto mt-2 text-gray-400">Skin that is scaly and flaky. Feels tight after washing</span>
+                                    <span className="w-40 text-xs m-auto mt-2 text-gray-400 ">Skin that is scaly and flaky. Feels tight after washing</span>
                                 </label>
                             </div>
                             <div className="radio-btn p-2 ">
@@ -110,9 +110,8 @@ const Step1: React.FC = () => {
                             </div>
 
                         </div>
-                        <div className="text-center mt-4">
+                        <div className="text-center mt-4 text-red-300 text-sm">
                             {errors.skintype && <span>Choose your skintype</span>}
-
                         </div>
 
                     </div>

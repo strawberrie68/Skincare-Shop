@@ -54,12 +54,12 @@ const Step4: React.FC = () => {
                         <p className="text-gray-400">Check all that applies</p>
 
 
-                        <div className="flex mt-6 ">
+                        <div className="grid grid-cols-2 mt-6 sm:grid-cols-3 ">
                             <div className="radio-btn p-2 ">
                                 <label className=" h-[200px] flex flex-col text-center py-8 px-2 border-2  border-gray-05 cursor-pointer bg-white opacity-75 rounded-xl hover:shadow-slate-300 hover:shadow-lg ">
                                     <input
                                         className="hidden" type="checkbox"
-                                        {...register("concerns")}
+                                        {...register("concerns", { required: true })}
                                         value="broken-barrier"
 
                                     />
@@ -73,7 +73,7 @@ const Step4: React.FC = () => {
                                     <input
                                         className="hidden"
                                         type="checkbox"
-                                        {...register("concerns")}
+                                        {...register("concerns", { required: true })}
                                         value="acne"
 
                                     />
@@ -87,7 +87,7 @@ const Step4: React.FC = () => {
                                     <input
                                         className="hidden"
                                         type="checkbox"
-                                        {...register("concerns")}
+                                        {...register("concerns", { required: true })}
                                         value="pores"
 
                                     />
@@ -101,7 +101,7 @@ const Step4: React.FC = () => {
                                     <input
                                         className="hidden"
                                         type="checkbox"
-                                        {...register("concerns")}
+                                        {...register("concerns", { required: true })}
                                         value="hyperpigmentation"
 
                                     />
@@ -115,7 +115,7 @@ const Step4: React.FC = () => {
                                     <input
                                         className="hidden"
                                         type="checkbox"
-                                        {...register("concerns")}
+                                        {...register("concerns", { required: true })}
                                         value="wrinkles"
 
                                     />
@@ -126,8 +126,8 @@ const Step4: React.FC = () => {
                             </div>
 
                         </div>
-                        <div className="text-center mt-4">
-                            {errors.concerns && <span>Choose your concerns</span>}
+                        <div className="text-center mt-4 text-red-300 text-sm">
+                            {errors.concerns && <span>Please select all your skin concerns</span>}
 
                         </div>
 

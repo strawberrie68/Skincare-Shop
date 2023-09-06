@@ -1,9 +1,13 @@
 
 import { useNavigate } from "react-router-dom";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { WizardStore, FormStep6 } from "@/store";
+import { WizardStore, FormStep7 } from "@/store";
 import { DevTool } from "@hookform/devtools"
 import NavBar from "@/componets/NavBar"
+
+
+import Dry from "@/assets/quizIcons/Catus.svg"
+import Normal from "@/assets/quizIcons/Cloud.svg"
 
 
 import { ChevronRightIcon } from "@heroicons/react/20/solid";
@@ -13,7 +17,7 @@ import { ChevronLeftIcon } from "@heroicons/react/20/solid";
 
 
 
-const Step6: React.FC = () => {
+const Step7Half: React.FC = () => {
     const {
         register,
         handleSubmit,
@@ -24,12 +28,22 @@ const Step6: React.FC = () => {
 
     const navigate = useNavigate();
 
-    const onSubmit: SubmitHandler<FormStep6> = (data) => {
-        WizardStore.update((s) => {
-            s.progress = 34;
-            s.tret.pregnant = data.tret.pregnant
-        });
-        navigate("/steps-7")
+    const onSubmit: SubmitHandler<FormStep7> = (data) => {
+        if (data.tret.tried == "true") {
+            WizardStore.update((s) => {
+                s.progress = 34;
+                s.tret.want = data.tret.tried
+            });
+            navigate("/step-7")
+
+        } else {
+            WizardStore.update((s) => {
+                s.progress = 34;
+                s.tret.want = data.tret.tried
+            });
+            navigate("/step-8")
+
+        }
     };
 
     const goBack = () => {
@@ -45,55 +59,54 @@ const Step6: React.FC = () => {
 
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="mt-4">
-                        <p className="text-gray-400">Q6 Pregnant or breastfeeding</p>
-                        <span className="w-40  m-auto mt-2 text-gray-400 mb-4">If you are:</span>
-                        <ul className="mt-4 list-disc ml-3">
-                            <li className="text-sm">Pregnant</li>
-                            <li className="text-sm">Breastfeeding</li>
-                            <li className="text-sm">Trying to get pregnent</li>
-                        </ul>
+                        <p className="text-gray-400">Hav you tried Tretinoin?</p>
 
 
-                        <div className="flex mt-10 justify-center flex-col">
+                        <div className="flex mt-6 justify-center">
                             <div className="radio-btn p-2 ">
-                                <label className=" h-[90px] flex flex-col text-center px-2 border-2  border-gray-05 cursor-pointer bg-white opacity-75 rounded-xl hover:shadow-slate-300 hover:shadow-lg ">
+                                <label className=" h-[250px] flex flex-col text-center py-8 px-2 border-2  border-gray-05 cursor-pointer bg-white opacity-75 rounded-xl hover:shadow-slate-300 hover:shadow-lg ">
                                     <input
-                                        className="hidden" type="radio"
-                                        {...register("tret.pregnant", { required: true })}
+                                        type="checkbox"
+                                        {...register("tret.tried", { required: true })}
                                         value="true"
-
-                                    />
-                                    {/* <img className="w-10  bg-primary-10 mb-4 m-auto border-2 p-2 rounded-3xl" src={Dry} /> */}
-                                    <span className="text-xl text-gray-400 tracking-widest pt-2">True</span>
-                                    <p className="text-xs mt-4">I'm pregnant or trying!</p>
-
-                                </label>
-                            </div>
-                            <div className="radio-btn p-2  ">
-                                <label className="h-[90px] flex flex-col text-center justify-center px-2 border-2  border-gray-05 cursor-pointer bg-white opacity-75 rounded-xl  hover:shadow-md ">
-                                    <input
                                         className="hidden"
-                                        type="radio"
-                                        {...register("tret.pregnant", { required: true })}
-
-                                        value="false"
 
                                     />
-                                    {/* <img className="w-10 bg-primary-10 mb-4 m-auto border-2 p-2 rounded-3xl" src={Normal} /> */}
-                                    <span className="text-xl text-gray-400 tracking-widest pt-2">False</span>
-                                    <p className="text-xs mt-4">Not pregnant or trying</p>
+                                    <img className="w-10  bg-primary-10 mb-4 m-auto border-2 p-2 rounded-3xl" src={Dry} />
+                                    <span className="text-xl text-gray-400 tracking-widest pt-2">YES</span>
+                                    <p>I have tried tretinoin </p>
 
+                                </label>
+                            </div>
+                            <div className="radio-btn p-2 ">
+                                <label className=" h-[250px]  flex flex-col text-center py-8 px-2 border-2  border-gray-05 cursor-pointer bg-white opacity-75 rounded-xl hover:shadow-slate-300 hover:shadow-lg ">
+                                    <input
+                                        type="checkbox"
+                                        {...register("tret.tried", { required: true })}
+                                        value="false"
+                                        className="hidden"
+
+                                    />
+                                    <img className="w-10  bg-primary-10 mb-4 m-auto border-2 p-2 rounded-3xl" src={Dry} />
+                                    <span className="text-xl text-gray-400 tracking-widest pt-2">NO</span>
+                                    <p className="w-[180px]">I have not tried tretinoin, but I may have tried retinol</p>
 
                                 </label>
                             </div>
 
 
 
-                        </div>
-                        <div className="text-center mt-4 text-red-300 text-sm">
-                            {errors.tret?.pregnant && <span>Select an answer</span>}
 
                         </div>
+
+                        <div className="text-center mt-4 text-red-300 text-sm">
+                            {errors.tret?.tried && <span>Hav you tried tretinoin? </span>}
+
+                        </div>
+
+
+
+
 
                     </div>
 
@@ -140,4 +153,4 @@ const Step6: React.FC = () => {
     );
 };
 
-export default Step6;
+export default Step7Half;

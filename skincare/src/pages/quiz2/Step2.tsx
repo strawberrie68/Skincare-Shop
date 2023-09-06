@@ -22,7 +22,7 @@ const Step2: React.FC = () => {
         handleSubmit,
         // getValues,
         control,
-        // formState: { errors },
+        formState: { errors },
     } = useForm({ defaultValues: WizardStore.useState((s) => s) });
 
     const navigate = useNavigate();
@@ -45,43 +45,51 @@ const Step2: React.FC = () => {
             <NavBar />
             <div className=" mt-40 w-4/5 m-auto">
                 <p className="text-3xl">Is your skin sensitive</p>
+                <p className="text-gray-400 mt-4 text-sm">Q2 Would you say your skin is sensitive?</p>
 
                 <form onSubmit={handleSubmit(onSubmit)}>
 
-                    <div className="flex flex-col mt-6">
-                        <div className="radio-btn p-2 ">
-                            <label className=" h-[210px] flex flex-col text-center py-8 px-2 border-2  border-gray-05 cursor-pointer bg-white opacity-75 rounded-xl hover:shadow-slate-300 hover:shadow-lg ">
-                                <input
-                                    className="hidden" type="radio"
-                                    {...register("isSensitive")}
-                                    value="false"
+                    <div className="flex flex-col mt-6 max-w-xl mx-auto">
+                        <div className="flex flex-col xs:flex-row mx-auto">
+                            <div className="radio-btn p-2 ">
+                                <label className=" h-[250px] flex flex-col text-center py-8 px-2 border-2  border-gray-05 cursor-pointer bg-white opacity-75 rounded-xl hover:shadow-slate-300 hover:shadow-lg ">
+                                    <input
+                                        className="hidden" type="radio"
+                                        {...register("isSensitive", { required: true })}
+                                        value="false"
 
-                                />
-                                <img className="w-10  bg-primary-10 mb-4 m-auto border-2 p-2 rounded-3xl" src={Water} />
-                                <span className="text-xl text-gray-400 tracking-widest pt-2">FALSE</span>
-                                <span className="w-56 text-xs m-auto mt-2 text-gray-400">Skin is rarely irritated unless I over exfoliate. </span>
-                            </label>
-                        </div>
-                        <div className="radio-btn p-2 ">
-                            <label className=" h-[250px] flex flex-col text-center py-8 px-2 border-2  border-gray-05 cursor-pointer bg-white opacity-75 rounded-xl hover:shadow-slate-300 hover:shadow-lg ">
-                                <input
-                                    className="hidden"
-                                    type="radio"
-                                    {...register("isSensitive")}
-                                    value="true"
+                                    />
+                                    <img className="w-10  bg-primary-10 mb-4 m-auto border-2 p-2 rounded-3xl" src={Water} />
+                                    <span className="text-xl text-gray-400 tracking-widest pt-2">NOT SENSITIVE</span>
+                                    <span className="w-56 text-xs m-auto mt-2 text-gray-400">Skin is rarely irritated unless I over exfoliate. </span>
+                                </label>
+                            </div>
+                            <div className="radio-btn p-2 ">
+                                <label className=" h-[250px] flex flex-col text-center py-8 px-2 border-2  border-gray-05 cursor-pointer bg-white opacity-75 rounded-xl hover:shadow-slate-300 hover:shadow-lg ">
+                                    <input
+                                        className="hidden"
+                                        type="radio"
+                                        {...register("isSensitive", { required: true })}
+                                        value="true"
 
-                                />
-                                <img className="w-10 bg-primary-10 mb-4 m-auto border-2 p-2 rounded-3xl" src={Fire} />
-                                <span className="text-xl text-gray-400 tracking-widest pt-2">TRUE</span>
-                                <span className="w-56 text-xs m-auto mt-2 text-gray-400">
-                                    <ul>
-                                        <li>My skin is usually red and easily irritated</li>
-                                        <li>I have rosacea</li>
-                                        <li>I have both dry skin and acne</li>
-                                        <li>I am currently using retinol</li>
-                                    </ul>
-                                </span>
-                            </label>
+                                    />
+                                    <img className="w-10 bg-primary-10 mb-4 m-auto border-2 p-2 rounded-3xl" src={Fire} />
+                                    <span className="text-xl text-gray-400 tracking-widest pt-2">SENSITIVE</span>
+                                    <span className="w-56 text-xs m-auto mt-2 text-gray-400">
+                                        <ul>
+                                            <li>My skin is usually red and easily irritated</li>
+                                            <li>I have rosacea</li>
+                                            <li>I have both dry skin and acne</li>
+                                            <li>I am currently using retinol</li>
+                                        </ul>
+                                    </span>
+                                </label>
+                            </div>
+
+                            <div className="text-center mt-4 text-red-300 text-sm">
+                                {errors.isSensitive && <span> Please choose an option</span>}
+                            </div>
+
                         </div>
 
 

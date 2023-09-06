@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import { ProductType } from "@/shared/types";
 import ProductCard from "@/componets/ProductCard";
 import { Link } from "react-router-dom";
+import CustomFormula from "./CustomFormula";
+import Footer from "@/scenes/footer";
 
 
 
@@ -194,7 +196,7 @@ const Result: React.FC = () => {
 
         <div className="bg-white h-full">
             <NavBar />
-            <div className=" mt-40 w-4/5 m-auto">
+            <div className=" mt-40 w-4/5 m-auto mb-8">
                 <p className="text-3xl">Find Your Perfect Routine</p>
 
                 {FakeQuiz.skintype == '' &&
@@ -233,7 +235,10 @@ const Result: React.FC = () => {
                                 </div>
                             }
                         </div>
-                        <p className="text-lg max-w-screen-md mx-auto">Your recommended products</p>
+                        <div>
+                            <p className="text-lg max-w-screen-md mx-auto">Your recommended products</p>
+
+                        </div>
 
                         <div className="grid xs:grid-cols-2 sm:grid-cols-3 gap-10 mt-10 max-w-screen-md mx-auto ">
                             {bestProducts.map((product: ProductType, index) =>
@@ -275,6 +280,13 @@ const Result: React.FC = () => {
                             )}
 
                         </div>
+                        <div className="h-3/4 mt-10 mb-28">
+                            <p className="text-lg max-w-sm  ml-0">You custom formula</p>
+                            <CustomFormula />
+
+
+                        </div>
+
                     </div>
                 }
 
@@ -288,6 +300,10 @@ const Result: React.FC = () => {
 
 
             </div>
+            {/* <div className="bg-white h-1/2">
+
+            </div> */}
+            <Footer />
 
         </div>
     );

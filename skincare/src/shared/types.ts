@@ -35,6 +35,16 @@ export interface ProductType {
   category: string;
 }
 
+export interface customSerum {
+    img: string,
+    name: string,
+    ingredients: string[],
+    skintype: string,
+    price: number,
+    category: string
+
+}
+
 
 export interface SkinType {
   skintype: string,

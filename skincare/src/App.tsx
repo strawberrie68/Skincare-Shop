@@ -13,6 +13,7 @@ import Step4 from "@/pages/quiz2/Step4"
 import Step5 from "@/pages/quiz2/Step5"
 import Step6 from "@/pages/quiz2/Step6"
 import Step7 from "@/pages/quiz2/Step7"
+import Step7Half from "./pages/quiz2/Step7Half";
 import Step8 from "@/pages/quiz2/Step8"
 import Results from "./pages/quiz2/Result";
 
@@ -24,6 +25,7 @@ import {
   Routes,
   Route,
 } from "react-router-dom"
+
 
 
 function App() {
@@ -42,6 +44,7 @@ function App() {
         <Route path="/step-4" element={<Step4 />} />
         <Route path="/step-5" element={<Step5 />} />
         <Route path="/step-6" element={<Step6 />} />
+        <Route path="/steps-7" element={<Step7Half />} />
         <Route path="/step-7" element={<Step7 />} />
         <Route path="/step-8" element={<Step8 />} />
         <Route path="/results" element={<Results />} />

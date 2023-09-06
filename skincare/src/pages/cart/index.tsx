@@ -4,6 +4,7 @@ import { reset } from "@/redux/cartSlice";
 import { ProductType } from "@/shared/types";
 import CartCard from "./CartCard";
 import { Link } from 'react-router-dom';
+import { customSerum } from "@/shared/types";
 
 
 const Cart = () => {
@@ -15,8 +16,8 @@ const Cart = () => {
   return (
     <div className="bg-white h-full">
       <NavBar />
-      <div className=" gap-16 py-10 md:pb-0  w-full mt-12 mb-16 ">
-        <div className="mx-24  mt-12 flex justify-between" >
+      <div className=" gap-16 py-10 md:pb-0  w-full mt-12 ">
+        <div className="mx-24  mt-12 flex justify-between " >
           <div className="basis-3/4">
             <h1 className="mt-16 text-3xl bold ">
               SHOPPING CART
@@ -42,7 +43,7 @@ const Cart = () => {
                 </div>
                 :
 
-                cart?.map((product: ProductType, index) => (
+                cart?.map((product: ProductType | customSerum, index) => (
                   <CartCard
                     img={product?.img}
                     name={product?.name}
@@ -103,17 +104,31 @@ const Cart = () => {
                 Checkout
               </button>
 
+
             </div>
+
+
+
+
+
 
           </div>
 
-
-
-
-
-
         </div>
+        {cart?.length != 0 ?
+          <div className="h-full w-4/5 mx-auto pb-52 flex justify-center">
+            <div className="basis-3/4">
+              <Link to="/shop">
+                <button className="border-2 bg-white w-[350px] rounded-lg text-gray-500 mt-2 px-4 py-2 hover:bg-black hover:text-primary-500">
+                  Continue Shopping
+                </button>
 
+              </Link>
+
+            </div>
+          </div>
+
+          : ""}
 
       </div>
 

@@ -25,14 +25,14 @@ export interface FormStep1 {
 
   export interface FormStep6 {
     tret: {
-      pregnant: boolean,
+      pregnant: string,
       
     },
   }
 
   export interface FormStep7 {
     tret: {
-      tried: boolean,
+      tried: string,
       typeOfTret: string,
       irritationLevel: string,
     },
@@ -53,10 +53,10 @@ export const WizardStore = new Store<FormValues>({
     concerns: [],
     tret: {
       want: "noRetinol",
-      tried: false,
+      tried: "false",
       typeOfTret: "0.0025%",
       irritationLevel: "low",
-      pregnant: false,
+      pregnant: "false",
     },
     acneLevel: "zero",
     progress: 0,

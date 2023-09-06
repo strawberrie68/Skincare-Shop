@@ -23,7 +23,7 @@ const Step7: React.FC = () => {
         handleSubmit,
         // getValues,
         control,
-        // formState: { errors },
+        formState: { errors },
     } = useForm({ defaultValues: WizardStore.useState((s) => s) });
 
     const navigate = useNavigate();
@@ -31,7 +31,6 @@ const Step7: React.FC = () => {
     const onSubmit: SubmitHandler<FormStep7> = (data) => {
         WizardStore.update((s) => {
             s.progress = 34;
-            s.tret.tried = data.tret.tried
             s.tret.irritationLevel = data.tret.irritationLevel
             s.tret.typeOfTret = data.tret.typeOfTret
         });
@@ -51,29 +50,17 @@ const Step7: React.FC = () => {
 
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="mt-4">
-                        <p className="text-gray-400">Hav you tried Tretinoin?</p>
+                        <p className="text-gray-400">What Tretinoin have you tried?</p>
 
 
                         <div className="flex mt-6 justify-center w-[250px]">
-                            <div className="radio-btn p-2 ">
-                                <label className=" h-[250px] flex flex-col text-center py-8 px-2 border-2  border-gray-05 cursor-pointer bg-white opacity-75 rounded-xl hover:shadow-slate-300 hover:shadow-lg ">
-                                    <input
-                                        type="checkbox"
-                                        {...register("tret.tried")}
-                                        value="true"
 
-                                    />
-                                    <img className="w-10  bg-primary-10 mb-4 m-auto border-2 p-2 rounded-3xl" src={Dry} />
-                                    <span className="text-xl text-gray-400 tracking-widest pt-2">I have tried</span>
-
-                                </label>
-                            </div>
                             <div className="p-2 ">
                                 <label className=" h-[250px] flex flex-col text-center py-8 px-2 border-2  border-gray-05 cursor-pointer bg-white opacity-75 rounded-xl hover:shadow-slate-300 hover:shadow-lg ">
                                     <input
                                         className="hidden"
                                         type="radio"
-                                        {...register("tret.irritationLevel")}
+                                        {...register("tret.irritationLevel", { required: true })}
 
                                         value="low"
 
@@ -90,7 +77,7 @@ const Step7: React.FC = () => {
                                     <input
                                         className="hidden"
                                         type="radio"
-                                        {...register("tret.irritationLevel")}
+                                        {...register("tret.irritationLevel", { required: true })}
 
                                         value="medium"
 
@@ -107,7 +94,7 @@ const Step7: React.FC = () => {
                                     <input
                                         className="hidden"
                                         type="radio"
-                                        {...register("tret.irritationLevel")}
+                                        {...register("tret.irritationLevel", { required: true })}
 
                                         value="high"
 
@@ -123,8 +110,8 @@ const Step7: React.FC = () => {
 
 
                         </div>
-                        <div className="text-center mt-4">
-
+                        <div className="text-center mt-4 text-red-300 text-sm">
+                            {errors.tret?.typeOfTret && <span>Select an answer</span>}
 
                         </div>
                         <div>
