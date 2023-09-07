@@ -11,7 +11,7 @@ type Props = {
 
 };
 
-const navButton = ({ isTopOfPage, children }: Props) => {
+const navButton = ({ isTopOfPage }: Props) => {
   const cart = useAppSelector(state => state.cart.products).length
   const actionBtnBackground = isTopOfPage ?
     "bg-gradient-to-r from-gray-700 via-neutral-800 to-black text-primary-500 hover:from-primary-100 hover:to-primary-500 hover:text-gray-600"
