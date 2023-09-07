@@ -10,21 +10,21 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 
-const FakeQuiz = {
-    skintype: "combo",
-    isSensitive: "false",
-    mainGoal: "hyperpigmentation",
-    concerns: ['acne', 'pores', 'hyperpigmentation'],
-    tret: {
-        want: "retinol",
-        tried: "true",
-        typeOfTret: "0.1%",
-        irritationLevel: "low",
-        pregnant: "false",
-    },
-    acneLevel: "zero",
-    progress: 16,
-}
+// const FakeQuiz = {
+//     skintype: "combo",
+//     isSensitive: "false",
+//     mainGoal: "hyperpigmentation",
+//     concerns: ['acne', 'pores', 'hyperpigmentation'],
+//     tret: {
+//         want: "retinol",
+//         tried: "true",
+//         typeOfTret: "0.1%",
+//         irritationLevel: "low",
+//         pregnant: "false",
+//     },
+//     acneLevel: "zero",
+//     progress: 16,
+// }
 
 type customSerum = {
     img: string,
@@ -54,7 +54,7 @@ const CustomFormula: React.FC = () => {
     useEffect(() => {
 
         const formulationIngredients: string[] = []
-        FakeQuiz.concerns.map((item) => {
+        state.concerns.map((item) => {
             switch (item) {
                 case "broken-barrier":
                     formulationIngredients.push("mugwort", "centella")
@@ -88,15 +88,15 @@ const CustomFormula: React.FC = () => {
     useEffect(() => {
 
 
-        if (FakeQuiz.tret.want == "retinol") {
+        if (state.tret.want == "retinol") {
 
-            if (FakeQuiz.tret.pregnant == "true") {
+            if (state.tret.pregnant == "true") {
                 setTretFormula("bakuchiol")
             } else {
-                if (FakeQuiz.tret.tried == "true") {
+                if (state.tret.tried == "true") {
 
 
-                    switch (FakeQuiz.tret.irritationLevel) {
+                    switch (state.tret.irritationLevel) {
                         case "low":
                             setIncreaseOrNot("increase")
                             break;
@@ -123,12 +123,12 @@ const CustomFormula: React.FC = () => {
 
     useEffect(() => {
         const tretPercent = ["0.025%", "0.05%", "0.1%"]
-        let matchedIndex = tretPercent.indexOf(FakeQuiz.tret.typeOfTret)
+        let matchedIndex = tretPercent.indexOf(state.tret.typeOfTret)
         let tret;
 
         if (increaseOrNot == "increase" && matchedIndex == 2 ||
             increaseOrNot == "decrease" && matchedIndex == 0) {
-            tret = FakeQuiz.tret.typeOfTret
+            tret = state.tret.typeOfTret
         } else if (increaseOrNot == "increase") {
             matchedIndex = matchedIndex + 1
             tret = tretPercent[matchedIndex]
@@ -137,7 +137,7 @@ const CustomFormula: React.FC = () => {
             matchedIndex = matchedIndex - 1
             tret = (tretPercent[matchedIndex])
         } else {
-            tret = (FakeQuiz.tret.typeOfTret)
+            tret = (state.tret.typeOfTret)
         }
 
         setTretFormula(`${tret} Tretinoin`)

@@ -29,10 +29,10 @@ const Result: React.FC = () => {
 
     useEffect(() => {
 
-        if (FakeQuiz.isSensitive == "true" || FakeQuiz.acneLevel == "high" || FakeQuiz.acneLevel == "some" || FakeQuiz.mainGoal == "rosacea") {
+        if (state.isSensitive == "true" || state.acneLevel == "high" || state.acneLevel == "some" || state.mainGoal == "rosacea") {
             setTheirSkintype("repairing")
         } else {
-            setTheirSkintype(FakeQuiz.skintype)
+            setTheirSkintype(state.skintype)
         }
 
     })
@@ -64,7 +64,7 @@ const Result: React.FC = () => {
             setProductsForSkinGoal(productForSkintype.filter((item) => item?.concerns?.includes("sensitivity") || item?.skintype?.includes("broken-barrier") || item?.skintype?.includes("all")))
 
         } else {
-            setProductsForSkinGoal(productForSkintype.filter((item) => item?.concerns?.includes(FakeQuiz.mainGoal) || item?.skintype?.includes("all")))
+            setProductsForSkinGoal(productForSkintype.filter((item) => item?.concerns?.includes(state.mainGoal) || item?.skintype?.includes("all")))
 
         }
 
@@ -118,7 +118,7 @@ const Result: React.FC = () => {
 
                     const bestProductIndex = v.map((product) =>
                         product.concerns?.map((productConcerns) =>
-                            (FakeQuiz.concerns.includes(productConcerns) ? Number(1) : Number(0))))
+                            (state.concerns.includes(productConcerns) ? Number(1) : Number(0))))
                         .map((arr) => arr?.reduce((acc, c) => acc + c, 0))
                     console.log(bestProductIndex)
 
@@ -145,31 +145,31 @@ const Result: React.FC = () => {
     console.log(productsForSkinGoal)
     console.log(groupedProducts)
 
-    // console.log(FakeQuiz)
+    // console.log(state)
 
 
     console.log(theirSkintype)
     console.log(bestProducts)
 
 
-    //replace FakeQuiz to state to change backt to real data
+    //replace state to state to change backt to real data
 
 
-    const FakeQuiz = {
-        skintype: "combo",
-        isSensitive: "false",
-        mainGoal: "hyperpigmentation",
-        concerns: ['acne', 'pores', 'hyperpigmentation'],
-        tret: {
-            want: true,
-            tried: true,
-            typeOfTret: "0.01%",
-            irritationLevel: "low",
-            pregnant: false,
-        },
-        acneLevel: "zero",
-        progress: 16,
-    }
+    // const FakeQuiz = {
+    //     skintype: "combo",
+    //     isSensitive: "false",
+    //     mainGoal: "hyperpigmentation",
+    //     concerns: ['acne', 'pores', 'hyperpigmentation'],
+    //     tret: {
+    //         want: true,
+    //         tried: true,
+    //         typeOfTret: "0.01%",
+    //         irritationLevel: "low",
+    //         pregnant: false,
+    //     },
+    //     acneLevel: "zero",
+    //     progress: 16,
+    // }
 
     function recommendBestProduct(arr: any) {
 
@@ -199,7 +199,7 @@ const Result: React.FC = () => {
             <div className=" mt-40 w-4/5 m-auto mb-8">
                 <p className="text-3xl">Find Your Perfect Routine</p>
 
-                {FakeQuiz.skintype == '' &&
+                {state.skintype == '' &&
                     <div className="my-12 border-2 p-5 flex flex-col justify-center text-center py-16 items-center">
                         <p className="text-gray-400">Oops we did not get your quiz results</p>
                         <Link to={"/quiz"}>
@@ -209,7 +209,7 @@ const Result: React.FC = () => {
                     </div>
                 }
                 {
-                    FakeQuiz.skintype != '' &&
+                    state.skintype != '' &&
                     <div>
 
                         <div className="my-12 border-2 p-5 flex flex-col justify-center text-center">
@@ -217,10 +217,10 @@ const Result: React.FC = () => {
                             {theirSkintype != "repairing" &&
                                 <div>
 
-                                    <p className="text-2xl">{`${FakeQuiz.skintype.toUpperCase()}`}</p>
+                                    <p className="text-2xl">{`${state.skintype.toUpperCase()}`}</p>
                                     <div className="mt-4 max-w-sm m-auto">
                                         <p className="text-sm text-gray-400">To help with your
-                                            <span className="text-gray-600"> {FakeQuiz.mainGoal} </span> and other skin concerns  we recommend these products </p>
+                                            <span className="text-gray-600"> {state.mainGoal} </span> and other skin concerns  we recommend these products </p>
                                     </div>
                                 </div>
                             }
@@ -300,9 +300,9 @@ const Result: React.FC = () => {
 
 
             </div>
-            {/* <div className="bg-white h-1/2">
+            <div className="bg-white h-1/2">
 
-            </div> */}
+            </div>
             <Footer />
 
         </div>
