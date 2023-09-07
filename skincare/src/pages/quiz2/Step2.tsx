@@ -29,7 +29,7 @@ const Step2: React.FC = () => {
 
     const onSubmit: SubmitHandler<FormStep2> = (data) => {
         WizardStore.update((s) => {
-            s.progress = 34;
+            s.progress = 24;
             s.isSensitive = data.isSensitive as string
         });
         navigate("/step-3")
@@ -43,47 +43,53 @@ const Step2: React.FC = () => {
 
         <div className="bg-white h-full">
             <NavBar />
-            <div className=" mt-40 w-4/5 m-auto">
+            <div className="w-full bg-gray-200 rounded-full h-1 dark:bg-gray-700 mt-24">
+                <div className={`bg-primary-10 opacity-90 h-1 rounded-full w-2/12 `}></div>
+            </div>
+            <div className="mt-24 w-4/5 m-auto">
                 <p className="text-3xl">Is your skin sensitive</p>
                 <p className="text-gray-400 mt-4 text-sm">Q2 Would you say your skin is sensitive?</p>
 
                 <form onSubmit={handleSubmit(onSubmit)}>
 
                     <div className="flex flex-col mt-6 max-w-xl mx-auto">
-                        <div className="flex flex-col xs:flex-row mx-auto">
-                            <div className="radio-btn p-2 ">
-                                <label className=" h-[250px] flex flex-col text-center py-8 px-2 border-2  border-gray-05 cursor-pointer bg-white opacity-75 rounded-xl hover:shadow-slate-300 hover:shadow-lg ">
-                                    <input
-                                        className="hidden" type="radio"
-                                        {...register("isSensitive", { required: true })}
-                                        value="false"
+                        <div className="flex flex-col">
+                            <div className="flex flex-col xs:flex-row mx-auto">
+                                <div className="radio-btn p-2 basis-1/2">
+                                    <label className=" h-[250px] flex flex-col text-center py-8 px-2 border-2  border-gray-05 cursor-pointer bg-white opacity-75 rounded-xl hover:shadow-slate-300 hover:shadow-lg ">
+                                        <input
+                                            className="hidden" type="radio"
+                                            {...register("isSensitive", { required: true })}
+                                            value="false"
 
-                                    />
-                                    <img className="w-10  bg-primary-10 mb-4 m-auto border-2 p-2 rounded-3xl" src={Water} />
-                                    <span className="text-xl text-gray-400 tracking-widest pt-2">NOT SENSITIVE</span>
-                                    <span className="w-56 text-xs m-auto mt-2 text-gray-400">Skin is rarely irritated unless I over exfoliate. </span>
-                                </label>
-                            </div>
-                            <div className="radio-btn p-2 ">
-                                <label className=" h-[250px] flex flex-col text-center py-8 px-2 border-2  border-gray-05 cursor-pointer bg-white opacity-75 rounded-xl hover:shadow-slate-300 hover:shadow-lg ">
-                                    <input
-                                        className="hidden"
-                                        type="radio"
-                                        {...register("isSensitive", { required: true })}
-                                        value="true"
+                                        />
+                                        <img className="w-10  bg-primary-10 mb-4 m-auto border-2 p-2 rounded-3xl" src={Water} />
+                                        <span className="text-xl text-gray-400 tracking-widest pt-2">NOT SENSITIVE</span>
+                                        <span className="w-56 text-xs m-auto mt-2 text-gray-400">Skin is rarely irritated unless I over exfoliate. </span>
+                                    </label>
+                                </div>
+                                <div className="radio-btn p-2 basis-1/2">
+                                    <label className=" h-[250px] flex flex-col text-center py-8 px-2 border-2  border-gray-05 cursor-pointer bg-white opacity-75 rounded-xl hover:shadow-slate-300 hover:shadow-lg ">
+                                        <input
+                                            className="hidden"
+                                            type="radio"
+                                            {...register("isSensitive", { required: true })}
+                                            value="true"
 
-                                    />
-                                    <img className="w-10 bg-primary-10 mb-4 m-auto border-2 p-2 rounded-3xl" src={Fire} />
-                                    <span className="text-xl text-gray-400 tracking-widest pt-2">SENSITIVE</span>
-                                    <span className="w-56 text-xs m-auto mt-2 text-gray-400">
-                                        <ul>
-                                            <li>My skin is usually red and easily irritated</li>
-                                            <li>I have rosacea</li>
-                                            <li>I have both dry skin and acne</li>
-                                            <li>I am currently using retinol</li>
-                                        </ul>
-                                    </span>
-                                </label>
+                                        />
+                                        <img className="w-10 bg-primary-10 mb-4 m-auto border-2 p-2 rounded-3xl" src={Fire} />
+                                        <span className="text-xl text-gray-400 tracking-widest pt-2">SENSITIVE</span>
+                                        <span className="w-56 text-xs m-auto mt-2 text-gray-400">
+                                            <ul>
+                                                <li>My skin is usually red and easily irritated</li>
+                                                <li>I have rosacea</li>
+                                                <li>I have both dry skin and acne</li>
+                                                <li>I am currently using retinol</li>
+                                            </ul>
+                                        </span>
+                                    </label>
+                                </div>
+
                             </div>
 
                             <div className="text-center mt-4 text-red-300 text-sm">

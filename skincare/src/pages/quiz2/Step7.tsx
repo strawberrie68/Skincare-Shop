@@ -6,9 +6,6 @@ import { DevTool } from "@hookform/devtools"
 import NavBar from "@/componets/NavBar"
 
 
-import Dry from "@/assets/quizIcons/Catus.svg"
-import Normal from "@/assets/quizIcons/Cloud.svg"
-
 
 import { ChevronRightIcon } from "@heroicons/react/20/solid";
 import { ChevronLeftIcon } from "@heroicons/react/20/solid";
@@ -21,7 +18,7 @@ const Step7: React.FC = () => {
     const {
         register,
         handleSubmit,
-        // getValues,
+        getValues,
         control,
         formState: { errors },
     } = useForm({ defaultValues: WizardStore.useState((s) => s) });
@@ -30,7 +27,7 @@ const Step7: React.FC = () => {
 
     const onSubmit: SubmitHandler<FormStep7> = (data) => {
         WizardStore.update((s) => {
-            s.progress = 34;
+            s.progress = 90;
             s.tret.irritationLevel = data.tret.irritationLevel
             s.tret.typeOfTret = data.tret.typeOfTret
         });
@@ -45,126 +42,142 @@ const Step7: React.FC = () => {
 
         <div className="bg-white h-full">
             <NavBar />
-            <div className=" mt-40 w-4/5 m-auto">
+            <div className="w-full bg-gray-200 rounded-full h-1 dark:bg-gray-700 mt-24">
+                <div className={`bg-primary-10 opacity-90 h-1 rounded-full w-10/12 `}></div>
+            </div>
+            <div className=" mt-24 w-4/5 m-auto">
                 <p className="text-3xl">Find Your Perfect Routine</p>
 
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="mt-4">
-                        <p className="text-gray-400">What Tretinoin have you tried?</p>
+                        <p className="text-lg mb-6">Tell us your experince with Tretinoin</p>
+
+                        <div>
+                            <p className="text-gray-400 font-medium">What was your level of irritation</p>
+                            <div className="flex mt-6 justify-center ">
+
+                                <div className="p-2 group ">
+                                    <label className=" h-[200px] flex flex-col text-center py-8 px-2 border-2  border-gray-05 cursor-pointer bg-white opacity-75 rounded-xl hover:shadow-slate-300 hover:shadow-lg ">
+                                        <input
+                                            className="hidden"
+                                            type="radio"
+                                            {...register("tret.irritationLevel", { required: true })}
+
+                                            value="low"
+
+                                        />
+
+                                        <span className="text-xl text-gray-400 tracking-widest pt-2  group-hover:text-gray-600">LOW</span>
+                                        <p className="text-sm text-gray-400 group-hover:text-gray-600">Some peeling and little to no irrtation</p>
 
 
-                        <div className="flex mt-6 justify-center w-[250px]">
+                                    </label>
+                                </div>
+                                <div className="p-2 group">
+                                    <label className=" h-[200px] flex flex-col text-center py-8 px-2 border-2  border-gray-05 cursor-pointer bg-white opacity-75 rounded-xl hover:shadow-slate-300 hover:shadow-lg ">
+                                        <input
+                                            className="hidden"
+                                            type="radio"
+                                            {...register("tret.irritationLevel", { required: true })}
 
-                            <div className="p-2 ">
-                                <label className=" h-[250px] flex flex-col text-center py-8 px-2 border-2  border-gray-05 cursor-pointer bg-white opacity-75 rounded-xl hover:shadow-slate-300 hover:shadow-lg ">
-                                    <input
-                                        className="hidden"
-                                        type="radio"
-                                        {...register("tret.irritationLevel", { required: true })}
+                                            value="medium"
 
-                                        value="low"
+                                        />
 
-                                    />
-                                    <img className="w-10 bg-primary-10 mb-4 m-auto border-2 p-2 rounded-3xl" src={Normal} />
-                                    <span className="text-xl text-gray-400 tracking-widest pt-2">LOW</span>
-                                    <p>Some peeling and little to no irrtation</p>
+                                        <span className="text-xl text-gray-400 tracking-widest pt-2 group-hover:text-gray-600">MED</span>
+                                        <p className="text-sm text-gray-400 group-hover:text-gray-600">Some peeling and a little peeling</p>
 
 
-                                </label>
+                                    </label>
+                                </div>
+                                <div className="p-2 group">
+                                    <label className=" h-[200px] flex flex-col text-center py-8 px-2 border-2  border-gray-05 cursor-pointer bg-white opacity-75 rounded-xl hover:shadow-slate-300 hover:shadow-lg ">
+                                        <input
+                                            className="hidden"
+                                            type="radio"
+                                            {...register("tret.irritationLevel", { required: true })}
+
+                                            value="high"
+
+                                        />
+
+                                        <span className="text-xl text-gray-400 tracking-widest pt-2 group-hover:text-gray-600">HIGH</span>
+                                        <p className="text-sm text-gray-400 group-hover:text-gray-600">Experinced painful stinging and irritation</p>
+
+
+                                    </label>
+                                </div>
+
+
+
                             </div>
-                            <div className="p-2 ">
-                                <label className=" h-[250px] flex flex-col text-center py-8 px-2 border-2  border-gray-05 cursor-pointer bg-white opacity-75 rounded-xl hover:shadow-slate-300 hover:shadow-lg ">
-                                    <input
-                                        className="hidden"
-                                        type="radio"
-                                        {...register("tret.irritationLevel", { required: true })}
+                            <div className="text-center mt-4 text-red-300 text-sm">
+                                {errors.tret?.irritationLevel && <span>Select an irritation level</span>}
 
-                                        value="medium"
-
-                                    />
-                                    <img className="w-10 bg-primary-10 mb-4 m-auto border-2 p-2 rounded-3xl" src={Normal} />
-                                    <span className="text-xl text-gray-400 tracking-widest pt-2">MED</span>
-                                    <p>Some peeling and a little peeling</p>
-
-
-                                </label>
                             </div>
-                            <div className="p-2 ">
-                                <label className=" h-[250px] flex flex-col text-center py-8 px-2 border-2  border-gray-05 cursor-pointer bg-white opacity-75 rounded-xl hover:shadow-slate-300 hover:shadow-lg ">
-                                    <input
-                                        className="hidden"
-                                        type="radio"
-                                        {...register("tret.irritationLevel", { required: true })}
-
-                                        value="high"
-
-                                    />
-                                    <img className="w-10 bg-primary-10 mb-4 m-auto border-2 p-2 rounded-3xl" src={Normal} />
-                                    <span className="text-xl text-gray-400 tracking-widest pt-2">HIGH</span>
-                                    <p>Experinced painful stinging and irritation</p>
-
-
-                                </label>
-                            </div>
-
-
-
-                        </div>
-                        <div className="text-center mt-4 text-red-300 text-sm">
-                            {errors.tret?.typeOfTret && <span>Select an answer</span>}
 
                         </div>
                         <div>
-                            <div className="p-2 ">
-                                <label className=" h-[250px] flex flex-col text-center py-8 px-2 border-2  border-gray-05 cursor-pointer bg-white opacity-75 rounded-xl hover:shadow-slate-300 hover:shadow-lg ">
-                                    <input
-                                        className="hidden"
-                                        type="radio"
-                                        {...register("tret.typeOfTret")}
+                            <p className="text-gray-400 font-medium">What percenatge did you use?</p>
+                            <div className="flex pt-2 justify-center w-full items-center ">
+                                <div className="p-2 basis-1/3 group">
+                                    <label className="justify-center h-[100px] flex flex-col text-center  px-2 border-2  border-gray-05 cursor-pointer bg-white opacity-75 rounded-xl hover:shadow-slate-300 hover:shadow-lg ">
+                                        <input
+                                            className="hidden"
+                                            type="radio"
+                                            {...register("tret.typeOfTret")}
 
-                                        value="0.025%"
+                                            value="0.025%"
 
-                                    />
-                                    <img className="w-10 bg-primary-10 mb-4 m-auto border-2 p-2 rounded-3xl" src={Normal} />
-                                    <span className="text-xl text-gray-400 tracking-widest pt-2">0.025%</span>
+                                        />
+                                        <span className="text-xl text-gray-400 tracking-widest pt-2 group-hover:text-gray-500">0.025%</span>
+                                        <p className="text-sm text-gray-400 group-hover:text-gray-500">Tretinoin</p>
 
 
 
-                                </label>
+                                    </label>
+                                </div>
+                                <div className="p-2  basis-1/3 group">
+                                    <label className=" justify-center h-[100px] flex flex-col text-center px-2 border-2  border-gray-05 cursor-pointer bg-white opacity-75 rounded-xl hover:shadow-slate-300 hover:shadow-lg ">
+                                        <input
+                                            className="hidden"
+                                            type="radio"
+                                            {...register("tret.typeOfTret")}
+
+                                            value="0.05%"
+
+                                        />
+                                        <span className="text-xl text-gray-400 tracking-widest pt-2 group-hover:text-gray-500">0.05%</span>
+                                        <p className="text-sm text-gray-400 group-hover:text-gray-500">Tretinoin</p>
+
+
+
+                                    </label>
+                                </div>
+                                <div className="p-2  basis-1/3 group">
+
+                                    <label className=" justify-center h-[100px] flex flex-col text-center  px-2 border-2  border-gray-05 cursor-pointer bg-white opacity-75 rounded-xl hover:shadow-slate-300 hover:shadow-lg ">
+                                        <input
+                                            className="hidden"
+                                            type="radio"
+                                            {...register("tret.typeOfTret")}
+
+                                            value="0.1%"
+
+                                        />
+
+                                        <span className="text-xl text-gray-400 tracking-widest pt-2 group-hover:text-gray-500">0.1%</span>
+                                        <p className="text-sm text-gray-400 group-hover:text-gray-500">Tretinoin</p>
+
+
+
+                                    </label>
+                                </div>
                             </div>
-                            <div className="p-2 ">
-                                <label className=" h-[250px] flex flex-col text-center py-8 px-2 border-2  border-gray-05 cursor-pointer bg-white opacity-75 rounded-xl hover:shadow-slate-300 hover:shadow-lg ">
-                                    <input
-                                        className="hidden"
-                                        type="radio"
-                                        {...register("tret.typeOfTret")}
 
-                                        value="0.05%"
+                            <div className="text-center mt-4 text-red-300 text-sm">
+                                {errors.tret?.typeOfTret && <span>Select an answer</span>}
 
-                                    />
-                                    <img className="w-10 bg-primary-10 mb-4 m-auto border-2 p-2 rounded-3xl" src={Normal} />
-                                    <span className="text-xl text-gray-400 tracking-widest pt-2">0.05%</span>
-
-
-
-                                </label>
-                            </div>
-                            <div className="p-2 ">
-                                <label className=" h-[250px] flex flex-col text-center py-8 px-2 border-2  border-gray-05 cursor-pointer bg-white opacity-75 rounded-xl hover:shadow-slate-300 hover:shadow-lg ">
-                                    <input
-                                        className="hidden"
-                                        type="radio"
-                                        {...register("tret.typeOfTret")}
-
-                                        value="0.1%"
-
-                                    />
-                                    <img className="w-10 bg-primary-10 mb-4 m-auto border-2 p-2 rounded-3xl" src={Normal} />
-                                    <span className="text-xl text-gray-400 tracking-widest pt-2">0.1%</span>
-
-
-
-                                </label>
                             </div>
 
                         </div>

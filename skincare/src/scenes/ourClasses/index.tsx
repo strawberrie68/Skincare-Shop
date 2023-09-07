@@ -1,9 +1,9 @@
 import { SelectedPage, ClassType } from "@/shared/types";
 import image1 from "@/assets/gallery/lotion.jpg";
 import image2 from "@/assets/gallery/oil.jpg";
-import image3 from "@/assets/gallery/skincare-set.jpg";
-import image4 from "@/assets/closeup.jpg";
-import image5 from "@/assets/gallery/mirror.jpg";
+import image3 from "@/assets/gallery/skincare.jpg";
+import image4 from "@/assets/gallery/applying.jpg";
+import image5 from "@/assets/gallery/products.jpg";
 import image6 from "@/assets/gallery/bath.jpg";
 import { motion } from "framer-motion";
 import Class from "./class";

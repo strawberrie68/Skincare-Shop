@@ -26,7 +26,7 @@ const Step6: React.FC = () => {
 
     const onSubmit: SubmitHandler<FormStep6> = (data) => {
         WizardStore.update((s) => {
-            s.progress = 34;
+            s.progress = 72;
             s.tret.pregnant = data.tret.pregnant
         });
         navigate("/steps-7")
@@ -40,7 +40,10 @@ const Step6: React.FC = () => {
 
         <div className="bg-white h-full">
             <NavBar />
-            <div className=" mt-40 w-4/5 m-auto">
+            <div className="w-full bg-gray-200 rounded-full h-1 dark:bg-gray-700 mt-24">
+                <div className={`bg-primary-10 opacity-90 h-1 rounded-full w-7/12 `}></div>
+            </div>
+            <div className=" mt-24 w-4/5 m-auto">
                 <p className="text-3xl">Find Your Perfect Routine</p>
 
                 <form onSubmit={handleSubmit(onSubmit)}>
@@ -54,8 +57,8 @@ const Step6: React.FC = () => {
                         </ul>
 
 
-                        <div className="flex mt-10 justify-center flex-col">
-                            <div className="radio-btn p-2 ">
+                        <div className="flex mt-10 justify-center flex-col sm:flex-row ">
+                            <div className="radio-btn p-2 basis-1/2 ">
                                 <label className=" h-[90px] flex flex-col text-center px-2 border-2  border-gray-05 cursor-pointer bg-white opacity-75 rounded-xl hover:shadow-slate-300 hover:shadow-lg ">
                                     <input
                                         className="hidden" type="radio"
@@ -63,13 +66,13 @@ const Step6: React.FC = () => {
                                         value="true"
 
                                     />
-                                    {/* <img className="w-10  bg-primary-10 mb-4 m-auto border-2 p-2 rounded-3xl" src={Dry} /> */}
+
                                     <span className="text-xl text-gray-400 tracking-widest pt-2">True</span>
                                     <p className="text-xs mt-4">I'm pregnant or trying!</p>
 
                                 </label>
                             </div>
-                            <div className="radio-btn p-2  ">
+                            <div className="radio-btn p-2 basis-1/2 ">
                                 <label className="h-[90px] flex flex-col text-center justify-center px-2 border-2  border-gray-05 cursor-pointer bg-white opacity-75 rounded-xl  hover:shadow-md ">
                                     <input
                                         className="hidden"
@@ -79,7 +82,7 @@ const Step6: React.FC = () => {
                                         value="false"
 
                                     />
-                                    {/* <img className="w-10 bg-primary-10 mb-4 m-auto border-2 p-2 rounded-3xl" src={Normal} /> */}
+
                                     <span className="text-xl text-gray-400 tracking-widest pt-2">False</span>
                                     <p className="text-xs mt-4">Not pregnant or trying</p>
 

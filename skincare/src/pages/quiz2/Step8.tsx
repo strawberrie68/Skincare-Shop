@@ -6,15 +6,8 @@ import { DevTool } from "@hookform/devtools"
 import NavBar from "@/componets/NavBar"
 
 
-// import Dry from "@/assets/quizIcons/Catus.svg"
-import Normal from "@/assets/quizIcons/Cloud.svg"
-// import Combo from "@/assets/quizIcons/CloudSun.svg"
-// import Oily from "@/assets/quizIcons/Umbrella.svg"
-
 import { ChevronRightIcon } from "@heroicons/react/20/solid";
 import { ChevronLeftIcon } from "@heroicons/react/20/solid";
-
-
 
 
 
@@ -22,16 +15,16 @@ const Step8: React.FC = () => {
     const {
         register,
         handleSubmit,
-        // getValues,
+        getValues,
         control,
-        // formState: { errors },
+        formState: { errors },
     } = useForm({ defaultValues: WizardStore.useState((s) => s) });
 
     const navigate = useNavigate();
 
     const onSubmit: SubmitHandler<FormStep8> = (data) => {
         WizardStore.update((s) => {
-            s.progress = 34;
+            s.progress = 99;
             s.acneLevel = data.acneLevel
         });
         navigate("/results")
@@ -45,26 +38,34 @@ const Step8: React.FC = () => {
 
         <div className="bg-white h-full">
             <NavBar />
-            <div className=" mt-40 w-4/5 m-auto">
+            <div className="w-full bg-gray-200 rounded-full h-1 dark:bg-gray-700 mt-24">
+                <div className={`bg-primary-10 opacity-90 h-1 rounded-full w-11/12 `}></div>
+            </div>
+
+            <div className=" mt-24 w-4/5 m-auto">
+                <div className="mb-12">
+
+
+
+                </div>
                 <p className="text-3xl">Find Your Perfect Routine</p>
 
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="">
-                        <p className="text-gray-400">What is your acne level? </p>
+                        <p className="text-gray-400">Q8 What is your acne level? </p>
 
 
-                        <div className="flex mt-6  w-[250px] ">
+                        <div className="flex flex-col sm:flex-row mt-6 ">
                             <div className="radio-btn p-2 ">
-                                <label className=" h-[250px] flex flex-col text-center py-8 px-2 border-2  border-gray-05 cursor-pointer bg-white opacity-75 rounded-xl hover:shadow-slate-300 hover:shadow-lg ">
+                                <label className=" h-[70px] flex flex-col text-center px-2 border-2  border-gray-05 cursor-pointer bg-white opacity-75 rounded-xl hover:shadow-slate-300 hover:shadow-lg ">
                                     <input
                                         className="hidden"
                                         type="radio"
-                                        {...register("acneLevel")}
+                                        {...register("acneLevel", { required: true })}
 
                                         value="zero"
 
                                     />
-                                    <img className="w-10 bg-primary-10 mb-4 m-auto border-2 p-2 rounded-3xl" src={Normal} />
                                     <span className="text-xl text-gray-400 tracking-widest pt-2">None</span>
                                     <span className="w-40 text-xs m-auto mt-2 text-gray-400 mb-4">2-5 Acne</span>
 
@@ -72,16 +73,16 @@ const Step8: React.FC = () => {
                                 </label>
                             </div>
                             <div className="radio-btn p-2 ">
-                                <label className=" h-[250px] flex flex-col text-center py-8 px-2 border-2  border-gray-05 cursor-pointer bg-white opacity-75 rounded-xl hover:shadow-slate-300 hover:shadow-lg ">
+                                <label className=" h-[70px] flex flex-col text-center px-2 border-2  border-gray-05 cursor-pointer bg-white opacity-75 rounded-xl hover:shadow-slate-300 hover:shadow-lg ">
                                     <input
                                         className="hidden"
                                         type="radio"
-                                        {...register("acneLevel")}
+                                        {...register("acneLevel", { required: true })}
 
                                         value="low"
 
                                     />
-                                    <img className="w-10 bg-primary-10 mb-4 m-auto border-2 p-2 rounded-3xl" src={Normal} />
+
                                     <span className="text-xl text-gray-400 tracking-widest pt-2">Little</span>
                                     <span className="w-40 text-xs m-auto mt-2 text-gray-400 mb-4">2-5 Acne</span>
 
@@ -89,16 +90,16 @@ const Step8: React.FC = () => {
                                 </label>
                             </div>
                             <div className="radio-btn p-2 ">
-                                <label className=" h-[250px] flex flex-col text-center py-8 px-2 border-2  border-gray-05 cursor-pointer bg-white opacity-75 rounded-xl hover:shadow-slate-300 hover:shadow-lg ">
+                                <label className=" h-[70px] flex flex-col text-center px-2 border-2  border-gray-05 cursor-pointer bg-white opacity-75 rounded-xl hover:shadow-slate-300 hover:shadow-lg ">
                                     <input
                                         className="hidden"
                                         type="radio"
-                                        {...register("acneLevel")}
+                                        {...register("acneLevel", { required: true })}
 
                                         value="some"
 
                                     />
-                                    <img className="w-10 bg-primary-10 mb-4 m-auto border-2 p-2 rounded-3xl" src={Normal} />
+
                                     <span className="text-xl text-gray-400 tracking-widest pt-2">Some</span>
                                     <span className="w-40 text-xs m-auto mt-2 text-gray-400 mb-4">10-15 Acne</span>
 
@@ -106,16 +107,16 @@ const Step8: React.FC = () => {
                                 </label>
                             </div>
                             <div className="radio-btn p-2 ">
-                                <label className=" h-[250px] flex flex-col text-center py-8 px-2 border-2  border-gray-05 cursor-pointer bg-white opacity-75 rounded-xl hover:shadow-slate-300 hover:shadow-lg ">
+                                <label className=" h-[70px] flex flex-col text-center px-2 border-2  border-gray-05 cursor-pointer bg-white opacity-75 rounded-xl hover:shadow-slate-300 hover:shadow-lg ">
                                     <input
                                         className="hidden"
                                         type="radio"
-                                        {...register("acneLevel")}
+                                        {...register("acneLevel", { required: true })}
 
                                         value="high"
 
                                     />
-                                    <img className="w-10 bg-primary-10 mb-4 m-auto border-2 p-2 rounded-3xl" src={Normal} />
+
                                     <span className="text-xl text-gray-400 tracking-widest pt-2">Lots</span>
                                     <span className="w-40 text-xs m-auto mt-2 text-gray-400 mb-4">20+ Acne</span>
 
@@ -126,12 +127,13 @@ const Step8: React.FC = () => {
 
 
                         </div>
-                        <div className="text-center mt-4">
-
+                        <div className="text-center mt-4 text-red-300 text-sm">
+                            {errors.acneLevel && <span>Select an answer</span>}
 
                         </div>
 
                     </div>
+
 
                     {/* TOGGLE NEXT AND BACK BUTTONS */}
 

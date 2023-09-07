@@ -31,7 +31,7 @@ const Step1: React.FC = () => {
 
     const onSubmit: SubmitHandler<FormStep1> = (data) => {
         WizardStore.update((s) => {
-            s.progress = 17;
+            s.progress = 12;
             s.skintype = data.skintype as string
         });
         navigate("/step-2")
@@ -43,8 +43,12 @@ const Step1: React.FC = () => {
 
         <div className="bg-white h-full">
             <NavBar />
-            <div className=" mt-40 h-full w-4/5 m-auto">
-                <p className="text-3xl">Find Your Perfect Routine</p>
+            <div className="w-full bg-gray-200 rounded-full h-1 dark:bg-gray-700 mt-24">
+                <div className={`bg-primary-10 opacity-90 h-1 rounded-full w-1/12 `}></div>
+            </div>
+            <div className=" mt-24 h-full w-4/5 m-auto">
+
+                <p className="text-3xl ml-0">Find Your Perfect Routine</p>
 
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="mt-4">
