@@ -23,10 +23,13 @@ const cartCard = ({ img, name, price }: Props) => {
         />
 
       </div>
+      <div className="grid grid-cols-4 w-3/4 ml-8">
+        <p className="col-span-2">{name}</p>
+        <p>x 1</p>
+        <p className="px-8">$ {price}</p>
 
-      <p className="">{name}</p>
-      <p>x 1</p>
-      <p className="px-8">$ {price}</p>
+      </div>
+
 
       <XMarkIcon
         className="h-6 w-6 text-gray-10"

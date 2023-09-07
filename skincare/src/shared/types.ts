@@ -6,6 +6,13 @@ export enum SelectedPage {
   Shop = "shop"
 }
 
+export enum AcneLevel {
+  High = 10,
+  Medium = 7.5,
+  Low = 4,
+  Zero = 0,
+}
+
 
 export interface BenefitType {
   icon: JSX.Element;
@@ -26,6 +33,16 @@ export interface ProductType {
   skintype?: string[];
   price: number;
   category: string;
+}
+
+export interface customSerum {
+    img: string,
+    name: string,
+    ingredients: string[],
+    skintype: string,
+    price: number,
+    category: string
+
 }
 
 

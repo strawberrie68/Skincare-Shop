@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import womanProduct from "@/assets/woman-product.jpg"
 import ActionButton from "@/shared/ActionButton";
 import AnchorLink from "react-anchor-link-smooth-scroll";
+import { Link } from "react-router-dom";
 
 
 type Props = {
@@ -67,7 +68,10 @@ const Quiz = ({ isTopOfPage, setSelectedPage }: Props) => {
               setSelectedPage={setSelectedPage}
               isTopOfPage={isTopOfPage}
             >
-              Start Quiz
+              <Link to="/quiz">
+                Start Quiz
+              </Link>
+
             </ActionButton>
 
             <AnchorLink

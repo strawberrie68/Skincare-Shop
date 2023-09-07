@@ -4,6 +4,8 @@ import { ProductType } from "@/shared/types"
 import { motion } from "framer-motion";
 
 
+
+
 const container = {
   hidden: {},
   visible: {
@@ -46,8 +48,9 @@ const Shop = () => {
 
         >
 
-          {threeProducts.map((product: ProductType) => (
+          {threeProducts.map((product: ProductType, index) => (
             <ProductCard
+              key={index}
               img={product.img}
               name={product.name}
               price={product.price}

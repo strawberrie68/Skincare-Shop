@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { Bars3Icon, XMarkIcon, ShoppingBagIcon } from "@heroicons/react/24/solid";
 import Logo from "@/assets/logo.png"
-import Link from "./Link";
+import Link2 from "./Link2";
 import { SelectedPage } from "@/shared/types";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import NavButton from "./NavButton"
+import { Link } from "react-router-dom";
 
 
 
@@ -35,26 +36,26 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
           {isAboveMediumScreens ? (
 
             <div className={`${flexBetween} gap-16 text-white uppercase tracking-widest font-light`}>
-              <Link
+              <Link2
                 page="Home"
                 selectedPage={selectedPage}
                 setSelectedPage={setSelectedPage}
               />
-              <Link
+              <Link2
                 page="Benefits"
                 selectedPage={selectedPage}
                 setSelectedPage={setSelectedPage}
               />
-              <Link
+              <Link2
                 page="Our Routines"
                 selectedPage={selectedPage}
                 setSelectedPage={setSelectedPage}
               />
               <Link
-                page="Quiz"
-                selectedPage={selectedPage}
-                setSelectedPage={setSelectedPage}
-              />
+                to="/quiz"
+              >
+                Quiz
+              </Link >
 
               <NavButton
 
@@ -93,22 +94,22 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
 
           {/* MENU ITEMS */}
           <div className="ml-[33%] flex flex-col gap-10 text-2xl">
-            <Link
+            <Link2
               page="Home"
               selectedPage={selectedPage}
               setSelectedPage={setSelectedPage}
             />
-            <Link
+            <Link2
               page="Benefits"
               selectedPage={selectedPage}
               setSelectedPage={setSelectedPage}
             />
-            <Link
+            <Link2
               page="Our Routines"
               selectedPage={selectedPage}
               setSelectedPage={setSelectedPage}
             />
-            <Link
+            <Link2
               page="Quiz"
               selectedPage={selectedPage}
               setSelectedPage={setSelectedPage}
