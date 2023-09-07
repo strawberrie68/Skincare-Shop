@@ -7,7 +7,7 @@ import NavBar from "@/componets/NavBar"
 
 
 import Dry from "@/assets/quizIcons/Catus.svg"
-import Normal from "@/assets/quizIcons/Cloud.svg"
+
 
 
 import { ChevronRightIcon } from "@heroicons/react/20/solid";
@@ -21,7 +21,6 @@ const Step7Half: React.FC = () => {
     const {
         register,
         handleSubmit,
-        // getValues,
         control,
         formState: { errors },
     } = useForm({ defaultValues: WizardStore.useState((s) => s) });

@@ -7,11 +7,6 @@ import { addToCart } from "@/redux/cartSlice";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-type Props = {}
-
-type Formula = {
-    ingredients: string[]
-}
 
 
 
@@ -99,22 +94,22 @@ const CustomFormula: React.FC = () => {
                 setTretFormula("bakuchiol")
             } else {
                 if (FakeQuiz.tret.tried == "true") {
-                    function checkIrritation() {
 
-                        switch (FakeQuiz.tret.irritationLevel) {
-                            case "low":
-                                setIncreaseOrNot("increase")
-                                break;
-                            case "medium":
-                                setIncreaseOrNot("stay")
-                                break;
-                            case "high":
-                                setIncreaseOrNot("decrease")
-                                break;
 
-                        }
-                        console.log(increaseOrNot)
+                    switch (FakeQuiz.tret.irritationLevel) {
+                        case "low":
+                            setIncreaseOrNot("increase")
+                            break;
+                        case "medium":
+                            setIncreaseOrNot("stay")
+                            break;
+                        case "high":
+                            setIncreaseOrNot("decrease")
+                            break;
+
                     }
+                    console.log(increaseOrNot)
+
 
                 } else {
                     setTretFormula("0.025%")

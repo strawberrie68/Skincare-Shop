@@ -22,7 +22,6 @@ const Step5: React.FC = () => {
     const {
         register,
         handleSubmit,
-        // getValues,
         control,
         formState: { errors },
     } = useForm({ defaultValues: WizardStore.useState((s) => s) });
