@@ -1,10 +1,4 @@
 import { SelectedPage, ClassType } from "@/shared/types";
-import image1 from "@/assets/gallery/lotion.jpg";
-import image2 from "@/assets/gallery/oil.jpg";
-import image3 from "@/assets/gallery/skincare.jpg";
-import image4 from "@/assets/gallery/applying.jpg";
-import image5 from "@/assets/gallery/products.jpg";
-import image6 from "@/assets/gallery/bath.jpg";
 import { motion } from "framer-motion";
 import Class from "./class";
 
@@ -13,35 +7,35 @@ const classes: Array<ClassType> = [
     name: "Certified Dermatologist Expertise",
     description:
       "With their in-depth knowledge of skin types, conditions, and treatments, you can trust that your regimen is not only effective but also safe for your unique skin.",
-    image: image1,
+    image: "https://images.pexels.com/photos/3892675/pexels-photo-3892675.jpeg?auto=compress&cs=tinysrgb&w=400",
   },
   {
     name: "Personalization Redefined",
     description: "Our routines go beyond the basics of skincare. We believe in the power of personalization, taking into account your individual skin concerns, goals, and lifestyle.",
-    image: image2,
+    image: "https://images.pexels.com/photos/4046316/pexels-photo-4046316.jpeg?auto=compress&cs=tinysrgb&w=400",
   },
   {
     name: "Real-Time Adjustments",
     description:
       "As your skin evolves, so should your skincare routine. Unlike static routines from other companies, our dermatologists provide ongoing guidance and adjustments based on your progress. ",
-    image: image3,
+    image: "https://images.unsplash.com/photo-1573461160327-b450ce3d8e7f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c2tpbmNhcmV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=400&q=60",
   },
   {
     name: "Scientifically-Backed Formulations",
     description:
       "We prioritize the science behind skincare. Each product recommended in your routine is carefully chosen based on its proven efficacy and ingredients that are supported by scientific research.",
-    image: image4,
+    image: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OTN8fHNraW5jYXJlfGVufDB8fDB8fHww&auto=format&fit=crop&w=400&q=60",
   },
   {
     name: "Holistic Approach to Beauty",
     description: "We believe that skincare is more than skin-deep. Our routines take a holistic approach to beauty, addressing factors such as lifestyle, diet, and environmental influences that can impact your skin's health",
-    image: image5,
+    image: "https://images.pexels.com/photos/8142196/pexels-photo-8142196.jpeg?auto=compress&cs=tinysrgb&w=400",
   },
   {
     name: "Proven Success Stories",
     description:
       "Our track record speaks for itself. Countless individuals have experienced transformative results with our personalized skincare routines. ",
-    image: image6,
+    image: "https://images.unsplash.com/photo-1594843310428-7eb6729555e9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTE5fHxza2luY2FyZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=400&q=60",
   },
 ];
 

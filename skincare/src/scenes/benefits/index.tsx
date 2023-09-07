@@ -7,7 +7,7 @@ import {
 } from "@heroicons/react/24/solid";
 import { motion } from "framer-motion";
 import Benefit from "./Benefit";
-import closeup from "@/assets/closeup.jpg"
+
 
 const benefits: Array<BenefitType> = [
   {
@@ -99,7 +99,7 @@ const Benefits = ({ isTopOfPage, setSelectedPage }: Props) => {
           <img
             className="mx-auto w-1/2 h-[450px] rounded-xl xs:w-3/4 xs:my-10 max-w-sm"
             alt="benefits-page-graphic"
-            src={closeup}
+            src="https://img.freepik.com/free-photo/portrait-beautiful-woman-with-clear-skin-using-eye-patches_23-2149207931.jpg?w=740&t=st=1694061588~exp=1694062188~hmac=6609404a5fddcc98c3ec0a7a74d89d2ec909777a0339753f8b6efe8b9a34d7de"
           />
 
           {/* DESCRIPTION */}

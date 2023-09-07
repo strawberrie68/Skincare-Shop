@@ -1,6 +1,5 @@
 import { SelectedPage } from "@/shared/types";
 import { motion } from "framer-motion";
-import womanProduct from "@/assets/woman-product.jpg"
 import ActionButton from "@/shared/ActionButton";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import { Link } from "react-router-dom";
@@ -92,7 +91,7 @@ const Quiz = ({ isTopOfPage, setSelectedPage }: Props) => {
           <img
             className="rounded-lg md:w-1/2 ml-4 md:ml-24 xs:hidden md:block sm:block sm:h-[500px] sm:ml-10 sm:object-cover md:h-[500px]"
             alt="woman product"
-            src={womanProduct}
+            src="https://images.unsplash.com/photo-1556228841-7db5b6786a34?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1287&q=80"
           />
           <div className="after:absolute md:after:content-skincareSwatch after:-bottom-40 after:-z-10">
 
