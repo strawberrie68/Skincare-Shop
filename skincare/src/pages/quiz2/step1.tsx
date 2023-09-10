@@ -42,7 +42,7 @@ const Step1: React.FC = () => {
 
         <div className="bg-white h-full">
             <NavBar />
-            <div className="w-full bg-gray-200 rounded-full h-1 dark:bg-gray-700 mt-24">
+            <div className="w-full bg-gray-200 rounded-full h-1 dark:bg-gray-200 mt-24">
                 <div className={`bg-primary-10 opacity-90 h-1 rounded-full w-1/12 `}></div>
             </div>
             <div className=" mt-24 h-full w-4/5 m-auto">

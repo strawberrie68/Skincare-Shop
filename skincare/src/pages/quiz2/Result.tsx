@@ -72,6 +72,8 @@ const Result: React.FC = () => {
 
     console.log(productsForSkinGoal)
 
+    //Group product by product type
+
     useEffect(() => {
 
         const grouped = productsForSkinGoal.reduce((group: { [key: string]: ProductType[] }, item) => {
@@ -95,13 +97,13 @@ const Result: React.FC = () => {
             const mapped = Object.entries(groupedProducts).map(([_, v]) => {
                 if (v.length > 1) {
 
-                    const bestProductIndex = v.map((product) =>
+                    const bestProductIndexArray = v.map((product) =>
                         product.concerns?.map((productConcerns) =>
                             (productConcerns.includes("sensitivity" || "broken-barrier") ? Number(1) : Number(0))))
                         .map((arr) => arr?.reduce((acc, c) => acc + c, 0))
-                    console.log(bestProductIndex)
+                    console.log(bestProductIndexArray)
 
-                    return v[recommendBestProduct(bestProductIndex)]
+                    return v[recommendBestProduct(bestProductIndexArray)]
 
 
                 } else {
@@ -116,13 +118,13 @@ const Result: React.FC = () => {
             const mapped = Object.entries(groupedProducts).map(([_, v]) => {
                 if (v.length > 1) {
 
-                    const bestProductIndex = v.map((product) =>
+                    const bestProductIndexArray = v.map((product) =>
                         product.concerns?.map((productConcerns) =>
                             (state.concerns.includes(productConcerns) ? Number(1) : Number(0))))
                         .map((arr) => arr?.reduce((acc, c) => acc + c, 0))
-                    console.log(bestProductIndex)
+                    console.log(bestProductIndexArray)
 
-                    return v[recommendBestProduct(bestProductIndex)]
+                    return v[recommendBestProduct(bestProductIndexArray)]
 
 
                 } else {
@@ -137,39 +139,8 @@ const Result: React.FC = () => {
 
     }, [groupedProducts])
 
-    useEffect(() => {
-
-    })
 
 
-    console.log(productsForSkinGoal)
-    console.log(groupedProducts)
-
-    // console.log(state)
-
-
-    console.log(theirSkintype)
-    console.log(bestProducts)
-
-
-    //replace state to state to change backt to real data
-
-
-    // const FakeQuiz = {
-    //     skintype: "combo",
-    //     isSensitive: "false",
-    //     mainGoal: "hyperpigmentation",
-    //     concerns: ['acne', 'pores', 'hyperpigmentation'],
-    //     tret: {
-    //         want: true,
-    //         tried: true,
-    //         typeOfTret: "0.01%",
-    //         irritationLevel: "low",
-    //         pregnant: false,
-    //     },
-    //     acneLevel: "zero",
-    //     progress: 16,
-    // }
 
     function recommendBestProduct(arr: any) {
 

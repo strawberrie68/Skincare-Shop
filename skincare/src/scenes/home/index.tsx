@@ -121,15 +121,17 @@ const Home = ({ isTopOfPage, setSelectedPage }: Props) => {
             </div>
             {/* SPONSORS */}
             {isAboveMediumScreens && (
-                <section>
-                    <div className="h-1/5 w-full bg-white py-10 ">
-                        <div className="mx-auto w-5/6 h-[180px] ">
+                <section className="relative">
+                    <div className="h-1/5 w-full bg-white py-10 absolute -top-10">
+                        <div className="mx-auto w-4/5 h-[200px]  ">
                             {/* <p className="text-xl bold capitalize">As seen on</p> */}
-                            <div className="flex items-center justify-between gap-16 h-1/5">
-                                <img alt="sephora-sponsor" src={SponsorSephora} />
-                                <img alt="forbes-sponsor" src={SponsorForbes} />
-                                <img alt="fortune-sponsor" src={SponsorFortune} />
-                                <img alt="vouge-sponsor" src={SponsorVogue} />
+                            <div className="grid grid-cols-4 items-center justify-items-center ">
+                                {/* flex items-center justify-between gap-14 h-1/5 */}
+
+                                <img className="w-4/5 justify-self-center " alt=" sephora-sponsor" src={SponsorSephora} />
+                                <img className="w-3/5" alt="forbes-sponsor" src={SponsorForbes} />
+                                <img className="w-3/5" alt="fortune-sponsor" src={SponsorFortune} />
+                                <img className="w-3/5" alt="vouge-sponsor" src={SponsorVogue} />
                             </div>
                         </div>
                     </div>
