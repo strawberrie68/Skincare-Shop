@@ -10,7 +10,7 @@ A skincare e-commerce shop that assists customers in finding their ideal skincar
 [
 <kbd>
  🛁 Project Link
-</kbd>](https://dailyskincare.netlify.app/)
+</kbd>]([https://clarity-lime.vercel.app/login])
 
  
 
