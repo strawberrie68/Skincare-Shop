@@ -7,10 +7,9 @@ A skincare e-commerce shop that assists customers in finding their ideal skincar
 [![](SkincareEcommerce.gif)](https://dailyskincare.netlify.app/)
 
 
-[
-<kbd>
- 🛁 Project Link
-</kbd>]([https://dailyskincare.netlify.app/])
+
+ <a href="https://dailyskincare.netlify.app/" target="_blank">
+<kbd> <br> 🛁 Project Link <br> </kbd></a>
 
  
 
